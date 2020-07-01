@@ -184,7 +184,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
       - name: Bump semver
         if: "!contains(github.event.head_commit.message, '[skip bump]')"
-        run: yarn sversion -f
+        run: yarn sversion
       - name: Store bumped package.json
         uses: actions/upload-artifact@v2-preview
         with:
