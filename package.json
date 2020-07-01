@@ -40,6 +40,7 @@
     "@graphql-codegen/typescript": "^1.15.4",
     "@graphql-codegen/typescript-resolvers": "^1.15.4",
     "@klasa/console": "^0.0.3",
+    "@klasa/timestamp": "^0.0.1",
     "@types/cheerio": "^0.22.18",
     "@types/express": "^4.17.6",
     "@types/glob": "^7.1.2",
