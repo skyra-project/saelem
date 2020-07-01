@@ -20,7 +20,6 @@
     "up": "yarn upgrade-interactive --latest",
     "sversion": "standard-version",
     "codegen": "graphql-codegen",
-    "postcodegen": "replace-in-file /}\\;/g } generated/ts/saelem.d.ts --isRegex",
     "cloud:start": "node index.js"
   },
   "dependencies": {
@@ -55,7 +54,6 @@
     "node-fetch": "^2.6.0",
     "prettier": "^2.0.5",
     "reflect-metadata": "^0.1.13",
-    "replace-in-file": "^6.1.0",
     "standard-version": "^8.0.0",
     "ts-jest": "^26.1.1",
     "type-graphql": "^1.0.0-rc.3",

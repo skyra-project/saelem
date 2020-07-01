@@ -296,7 +296,7 @@ jobs:
         with:
           name: changelog_bundle
       - name: Set correct author in package.json
-        run: yarn replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
+        run:  sed -i 's/@skyra/@skyra-project/g' package.json
       - name: Publish to Github
         run: npm publish
         env:
