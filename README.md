@@ -15,7 +15,6 @@
 **Table of Contents**
 
 - [Installation](#installation)
-  * [NodeJS](#nodejs)
 - [Usage](#usage)
 - [Meta](#meta)
   * [License](#license)
@@ -56,8 +55,6 @@
 - Makes use of [Astrology.tv] by [Keli Fox]
 
 # Installation
-
-## NodeJS
 
 Install client side typings from [yarn] or [npm]:
 
