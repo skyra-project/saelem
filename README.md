@@ -5,7 +5,7 @@
 
   <p>
 <h1> Saelem </h1>
-<h3> Horoscope API for [Skyra]</h3>
+<h3> Horoscope API for <a href="https://github.com/skyra-project/skyra">Skyra<a></h3>
   </p>
 
 </div>
@@ -131,7 +131,6 @@ We accept donations through Patreon, BitCoin, Ethereum, and Litecoin. You can us
 [Astrology.tv]:                      https://astrology.tv/
 [Keli Fox]:                          https://twitter.com/KelliFoxAstro
 
-[Skyra]:                             https://github.com/skyra-project/skyra
 [yarn]:                              https://yarnpkg.com/package/@skyra/saelem
 [npm]:                               https://www.npmjs.com/package/@skyra/saelem
 [github package registry]:           https://github.com/skyra-project/saelem/packages
