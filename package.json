@@ -1,5 +1,5 @@
 {
-  "name": "saelem",
+  "name": "@skyra/saelem",
   "version": "1.0.0",
   "description": "GraphQL Horoscope API for Skyra",
   "author": "@skyra",
