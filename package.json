@@ -25,7 +25,7 @@
     "scripts:runner": "ts-node -P tsconfig.eslint.json",
     "scripts:validateNoOnly": "yarn scripts:runner scripts/validateNoOnly",
     "scripts:yarnAfterPull": "yarn scripts:runner scripts/yarnAfterPull",
-    "typescript:replace-invalid-code": "replace-in-file /}\\;/g } generated/ts/graphql-pokemon.d.ts --isRegex"
+    "typescript:replace-invalid-code": "replace-in-file /}\\;/g } generated/ts/saelem.d.ts --isRegex"
   },
   "dependencies": {
     "graphql": "^15.1.0"

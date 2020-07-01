@@ -35,5 +35,5 @@ coverage/
 generated/api/
 
 ## TypeScript Bundle
-generated/ts/graphql-pokemon.d.ts
-generated/ts/graphql-pokemon.graphql
+generated/ts/saelem.d.ts
+generated/ts/saelem.graphql

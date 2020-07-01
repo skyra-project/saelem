@@ -125,7 +125,7 @@ jobs:
       - name: Publish to Dockerhub
         uses: elgohr/Publish-Docker-Github-Action@master
         with:
-          name: skyrabot/graphql-pokemon
+          name: skyrabot/saelem
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
           tags: 'latest,stable,master'

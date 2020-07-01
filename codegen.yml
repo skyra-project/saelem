@@ -1,7 +1,7 @@
 overwrite: true
 schema: http://localhost:8284/
 generates:
-  ./generated/ts/graphql-pokemon.d.ts:
+  ./generated/ts/saelem.d.ts:
     plugins:
       - typescript
       - typescript-resolvers
@@ -10,7 +10,7 @@ generates:
         JSONObject: "Record<PropertyKey, any>"
       constEnums: true
       immutableTypes: true
-  ./generated/ts/graphql-pokemon.graphql:
+  ./generated/ts/saelem.graphql:
     plugins:
       - schema-ast
     config:
