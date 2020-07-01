@@ -276,6 +276,8 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
+      - name: Install sed
+        run: sudo apt-get install sed -y
       - name: Setup Node for publishing to Github
         uses: actions/setup-node@v1
         with:
