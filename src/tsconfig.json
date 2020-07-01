@@ -1,0 +1,13 @@
+{
+	"extends": "../tsconfig.base.json",
+	"compilerOptions": {
+		"rootDir": "./",
+		"outDir": "../generated/api",
+		"composite": true,
+		"declarationMap": false,
+		"sourceMap": false,
+		"importsNotUsedAsValues": "error",
+		"target": "ESNext"
+	},
+	"include": ["./**/*.ts"]
+}
