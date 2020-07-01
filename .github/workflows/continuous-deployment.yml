@@ -277,8 +277,6 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Install sed
-        run: sudo apt-get install sed -y
       - name: Setup Node for publishing to Github
         uses: actions/setup-node@v1
         with:
@@ -299,7 +297,7 @@ jobs:
         with:
           name: changelog_bundle
       - name: Set correct author in package.json
-        run:  sed -i 's/@skyra/@skyra-project/g' package.json
+        run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
       - name: Publish to Github
         run: npm publish
         env:
