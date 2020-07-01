@@ -1,6 +1,6 @@
 {
-  "projectName": "Saelem",
-  "projectOwner": "kyranet",
+  "projectName": "saelem",
+  "projectOwner": "skyra-project",
   "repoType": "github",
   "repoHost": "https://github.com",
   "files": [
@@ -14,7 +14,7 @@
       "login": "Favna",
       "name": "Jeroen Claassens",
       "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
-      "profile": "https://favware.tech/",
+      "profile": "https://github.com/favna/",
       "contributions": [
         "code",
         "doc",
