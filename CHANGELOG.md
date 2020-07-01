@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.4](https://github.com/skyra-project/saelem/compare/v1.0.3...v1.0.4) (2020-07-01)
+
+
+### Bug Fixes
+
+* **readme:** fixed twitter link for Kyra ([b8b0cb8](https://github.com/skyra-project/saelem/commit/b8b0cb84da303ebfa9a9f52bed0cde89d6fd454e))
+
 ### [1.0.3](https://github.com/skyra-project/saelem/compare/v1.0.0...v1.0.3) (2020-07-01)
 
 
