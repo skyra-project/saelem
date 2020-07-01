@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.1](https://github.com/skyra-project/saelem/compare/v1.0.0...v1.0.1) (2020-07-01)
+
+
+### Bug Fixes
+
+* fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
+
 ## 1.0.0 (2020-07-01)
 
 
