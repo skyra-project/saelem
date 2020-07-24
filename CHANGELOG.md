@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.8](https://github.com/skyra-project/saelem/compare/v1.0.7...v1.0.8) (2020-07-24)
+
+
+### Bug Fixes
+
+* fixed package main and types ([aebe8dc](https://github.com/skyra-project/saelem/commit/aebe8dc13be6b1651762861f1f8ab68115e9d9dc))
+* rename Query in schema to SaelemQuery to not conflict with other graphql schemas ([4050370](https://github.com/skyra-project/saelem/commit/4050370dbe5f50f10b38a06f66c515e44770b394))
+
 ### [1.0.7](https://github.com/skyra-project/saelem/compare/v1.0.6...v1.0.7) (2020-07-24)
 
 
