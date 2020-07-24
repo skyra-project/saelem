@@ -75,6 +75,8 @@ export default class HoroscopeService {
 					.text()
 					.split('Keywords:\u00A0')
 					.slice(1)
+					.join('')
+					.split(', ')
 					.map(toTitleCase);
 			}
 

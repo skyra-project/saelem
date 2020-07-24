@@ -13,6 +13,7 @@
     "test": "jest",
     "start": "node generated/api",
     "build": "tsc -b src",
+    "clean": "tsc -b src --clean",
     "watch": "tsc -b src -w",
     "dev": "yarn build && yarn start",
     "commit": "git-cz",
