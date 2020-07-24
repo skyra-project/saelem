@@ -10,10 +10,6 @@ export default class HoroscopeService {
 	#baseSeletor = '.sign-hero__horoscope-wrapper > .day-tabs-content--sign-page';
 	#fetchOptions: RequestInit = {
 		headers: {
-			':authority': 'astrology.tv',
-			':method': 'GET',
-			':path': '',
-			':scheme:': 'https',
 			accept: '*/*',
 			'accept-encoding': 'gzip, deflate, br',
 			'accept-language': 'en-US,en;q=0.9,nl;q=0.8',
