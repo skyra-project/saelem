@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.7](https://github.com/skyra-project/saelem/compare/v1.0.6...v1.0.7) (2020-07-24)
+
+
+### Bug Fixes
+
+* **service:** added fetch options ([#5](https://github.com/skyra-project/saelem/issues/5)) ([af2b725](https://github.com/skyra-project/saelem/commit/af2b725ae68876c5dfc607e35640c006647a0b3c))
+
 ### [1.0.6](https://github.com/skyra-project/saelem/compare/v1.0.5...v1.0.6) (2020-07-20)
 
 ### [1.0.5](https://github.com/skyra-project/saelem/compare/v1.0.4...v1.0.5) (2020-07-15)
