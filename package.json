@@ -4,8 +4,8 @@
   "description": "GraphQL Horoscope API for Skyra",
   "author": "@skyra",
   "license": "MIT",
-  "types": "dist/index.d.ts",
-  "main": "dist/index.d.ts",
+  "types": "generated/ts/graphql-pokemon.d.ts",
+  "main": "generated/ts/graphql-pokemon.d.ts",
   "homepage": "https://www.github.com/skyra-project/saelem",
   "scripts": {
     "lint": "eslint src scripts tests --ext ts --fix",
