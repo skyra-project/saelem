@@ -12,7 +12,7 @@ export default class HoroscopeService {
 		headers: {
 			accept: '*/*',
 			'accept-encoding': 'gzip, deflate, br',
-			'accept-language': 'en-US,en;q=0.9,nl;q=0.8',
+			'accept-language': 'en-US,en;q=0.9,de;q=0.8',
 			'cache-control': 'no-cache',
 			dnt: '1',
 			pragma: 'no-cache',
