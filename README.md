@@ -1,6 +1,6 @@
 <div align="center">
   <p>
-  <img style="height: 200px" src="https://cdn.skyra.pw/img/saelem.png" height="200" alt="logo"/>
+  <img style="height: 200px" src="https://cdn.skyra.pw/gh-assets/saelem.png" height="200" alt="logo"/>
   </p>
 
   <p>
