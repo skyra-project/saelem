@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.0.9](https://github.com/skyra-project/saelem/compare/v1.0.8...v1.0.9) (2020-07-25)
+
+
+### Bug Fixes
+
+* **readme:** update logo url ([f8bdc4f](https://github.com/skyra-project/saelem/commit/f8bdc4fdcd21282cf9d6df8644ba16ae34f21923))
+* ensure keywords are returned as an actual string array ([ff51f33](https://github.com/skyra-project/saelem/commit/ff51f33bba8c87f604fcf50bff7a809c9318c65d))
+
 ### [1.0.8](https://github.com/skyra-project/saelem/compare/v1.0.7...v1.0.8) (2020-07-24)
 
 
