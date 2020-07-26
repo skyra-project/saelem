@@ -24,7 +24,7 @@
 
 **Project Status**
 
-[![GitHub](https://img.shields.io/github/license/skyra-project/saelem?logo=github&style=flat-square)](https://github.com/skyra-project/saelem/blob/master/LICENSE.md)
+[![GitHub](https://img.shields.io/github/license/skyra-project/saelem?logo=github&style=flat-square)](https://github.com/skyra-project/saelem/blob/main/LICENSE.md)
 [![Continuous Deployment](https://github.com/skyra-project/saelem/workflows/Continuous%20Deployment/badge.svg)](https://github.com/skyra-project/saelem/actions?query=workflow%3A"Continuous+Deployment")
 
 **Social Media and Donations**

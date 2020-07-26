@@ -6,7 +6,7 @@ To contribute to this repository, feel free to create a new fork of the reposito
 submit a pull request. We highly suggest [ESLint] to be installed
 in your text editor or IDE of your choice to ensure builds from GitHub Actions do not fail.
 
-1. Fork, clone, and select the **master** branch.
+1. Fork, clone, and select the **main** branch.
 2. Create a new branch in your fork.
 3. Make your changes.
 4. Ensure your linting and tests pass by running `yarn test && yarn lint`
@@ -15,6 +15,6 @@ in your text editor or IDE of your choice to ensure builds from GitHub Actions d
 
 <!-- Link Dump -->
 
-[Discord Server]: https://join.skyra.pw
+[discord server]: https://join.skyra.pw
 [here]: https://github.com/skyra-project/skyra/pulls
-[ESLint]: https://eslint.org/
+[eslint]: https://eslint.org/
