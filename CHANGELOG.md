@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/skyra-project/saelem/compare/v1.0.9...v1.1.0) (2020-07-26)
+
+
+### Features
+
+* rename master branch to main ([a3f710d](https://github.com/skyra-project/saelem/commit/a3f710d3278b9f3d11c2ef58f5cd7e217961342a))
+
 ### [1.0.9](https://github.com/skyra-project/saelem/compare/v1.0.8...v1.0.9) (2020-07-25)
 
 
