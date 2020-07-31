@@ -1,13 +1,17 @@
 {
 	"extends": "../tsconfig.base.json",
 	"compilerOptions": {
-		"rootDir": "./",
 		"outDir": "../generated/api",
+		"rootDir": ".",
+		"baseUrl": ".",
 		"composite": true,
-		"declarationMap": false,
-		"sourceMap": false,
-		"importsNotUsedAsValues": "error",
-		"target": "ESNext"
+		"target": "ESNext",
+		"paths": {
+			"@utils/*": ["lib/utils/*"],
+			"@redis/*": ["lib/redis/*"],
+			"@lib/*": ["lib/*"],
+			"@root/*": ["./*"]
+		}
 	},
 	"include": ["./**/*.ts"]
 }

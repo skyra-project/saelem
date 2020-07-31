@@ -1,8 +1,7 @@
+import HoroscopeArgs from '@lib/args';
+import HoroscopeEntry from '@lib/entry';
+import HoroscopeService from '@lib/service';
 import { Args, Query, Resolver } from 'type-graphql';
-import HoroscopeArgs from '../arguments/HoroscopeArgs';
-import HoroscopeService from '../services/HoroscopeService';
-import HoroscopeEntry from '../structures/HoroscopeEntry';
-import { getRequestedFields } from '../utils/getRequestedFields';
 
 @Resolver(HoroscopeEntry)
 export default class HoroscopeResolver {
@@ -17,10 +16,7 @@ export default class HoroscopeResolver {
 			'Day defaults to "today"'
 		].join(' ')
 	})
-	async getHoroscope(
-		@Args() { sunsign, day }: HoroscopeArgs,
-		@getRequestedFields() requestedFields: Set<keyof HoroscopeEntry>
-	): Promise<HoroscopeEntry> {
-		return this.horoscopeService.find(sunsign, day, requestedFields);
+	async getHoroscope(@Args() { sunsign, day }: HoroscopeArgs): Promise<HoroscopeEntry> {
+		return this.horoscopeService.find(sunsign, day);
 	}
 }

@@ -1,3 +1,4 @@
+import redis from 'redis-mock';
 import 'reflect-metadata';
 
 jest.retryTimes(2);
@@ -6,3 +7,4 @@ jest.retryTimes(2);
 const NOW = new Date('2020-01-01T00:00:00.000+00:00').getTime();
 
 Date.now = jest.fn().mockImplementation(() => NOW);
+jest.mock('redis', () => redis);

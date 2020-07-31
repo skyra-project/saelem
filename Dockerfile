@@ -7,8 +7,8 @@ COPY yarn.lock ./
 
 RUN yarn install --frozen-lockfile --no-bin-links --link-duplicates
 
-COPY generated/api .
+COPY generated/api generated/api/
 
 ENV PORT 8080
 
-CMD ["yarn", "cloud:start"]
+CMD ["yarn", "start"]

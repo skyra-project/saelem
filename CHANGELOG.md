@@ -6,33 +6,29 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.1.0](https://github.com/skyra-project/saelem/compare/v1.0.9...v1.1.0) (2020-07-26)
 
-
 ### Features
 
-* rename master branch to main ([a3f710d](https://github.com/skyra-project/saelem/commit/a3f710d3278b9f3d11c2ef58f5cd7e217961342a))
+-   rename master branch to main ([a3f710d](https://github.com/skyra-project/saelem/commit/a3f710d3278b9f3d11c2ef58f5cd7e217961342a))
 
 ### [1.0.9](https://github.com/skyra-project/saelem/compare/v1.0.8...v1.0.9) (2020-07-25)
 
-
 ### Bug Fixes
 
-* **readme:** update logo url ([f8bdc4f](https://github.com/skyra-project/saelem/commit/f8bdc4fdcd21282cf9d6df8644ba16ae34f21923))
-* ensure keywords are returned as an actual string array ([ff51f33](https://github.com/skyra-project/saelem/commit/ff51f33bba8c87f604fcf50bff7a809c9318c65d))
+-   **readme:** update logo url ([f8bdc4f](https://github.com/skyra-project/saelem/commit/f8bdc4fdcd21282cf9d6df8644ba16ae34f21923))
+-   ensure keywords are returned as an actual string array ([ff51f33](https://github.com/skyra-project/saelem/commit/ff51f33bba8c87f604fcf50bff7a809c9318c65d))
 
 ### [1.0.8](https://github.com/skyra-project/saelem/compare/v1.0.7...v1.0.8) (2020-07-24)
 
-
 ### Bug Fixes
 
-* fixed package main and types ([aebe8dc](https://github.com/skyra-project/saelem/commit/aebe8dc13be6b1651762861f1f8ab68115e9d9dc))
-* rename Query in schema to SaelemQuery to not conflict with other graphql schemas ([4050370](https://github.com/skyra-project/saelem/commit/4050370dbe5f50f10b38a06f66c515e44770b394))
+-   fixed package main and types ([aebe8dc](https://github.com/skyra-project/saelem/commit/aebe8dc13be6b1651762861f1f8ab68115e9d9dc))
+-   rename Query in schema to SaelemQuery to not conflict with other graphql schemas ([4050370](https://github.com/skyra-project/saelem/commit/4050370dbe5f50f10b38a06f66c515e44770b394))
 
 ### [1.0.7](https://github.com/skyra-project/saelem/compare/v1.0.6...v1.0.7) (2020-07-24)
 
-
 ### Bug Fixes
 
-* **service:** added fetch options ([#5](https://github.com/skyra-project/saelem/issues/5)) ([af2b725](https://github.com/skyra-project/saelem/commit/af2b725ae68876c5dfc607e35640c006647a0b3c))
+-   **service:** added fetch options ([#5](https://github.com/skyra-project/saelem/issues/5)) ([af2b725](https://github.com/skyra-project/saelem/commit/af2b725ae68876c5dfc607e35640c006647a0b3c))
 
 ### [1.0.6](https://github.com/skyra-project/saelem/compare/v1.0.5...v1.0.6) (2020-07-20)
 
@@ -40,44 +36,39 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [1.0.4](https://github.com/skyra-project/saelem/compare/v1.0.3...v1.0.4) (2020-07-01)
 
-
 ### Bug Fixes
 
-* **readme:** fixed twitter link for Kyra ([b8b0cb8](https://github.com/skyra-project/saelem/commit/b8b0cb84da303ebfa9a9f52bed0cde89d6fd454e))
+-   **readme:** fixed twitter link for Kyra ([b8b0cb8](https://github.com/skyra-project/saelem/commit/b8b0cb84da303ebfa9a9f52bed0cde89d6fd454e))
 
 ### [1.0.3](https://github.com/skyra-project/saelem/compare/v1.0.0...v1.0.3) (2020-07-01)
 
-
 ### Bug Fixes
 
-* this should fix gh publish ([2db37db](https://github.com/skyra-project/saelem/commit/2db37dbfbdb2193df233ca74a7cba3dfb1aeb29e))
-* **readme:** simplify install section ([de67adc](https://github.com/skyra-project/saelem/commit/de67adc5470a1e7995ec1ecf2b6cb265b0977efe))
-* fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
-* fixed link in README ([b6456a5](https://github.com/skyra-project/saelem/commit/b6456a5359340f948f523045be2a4d5094e7dc1f))
-* really fix publishing to gpr ([7cde9eb](https://github.com/skyra-project/saelem/commit/7cde9ebdb65509f0e9c8463782b8b3a4d2d65c19))
+-   this should fix gh publish ([2db37db](https://github.com/skyra-project/saelem/commit/2db37dbfbdb2193df233ca74a7cba3dfb1aeb29e))
+-   **readme:** simplify install section ([de67adc](https://github.com/skyra-project/saelem/commit/de67adc5470a1e7995ec1ecf2b6cb265b0977efe))
+-   fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
+-   fixed link in README ([b6456a5](https://github.com/skyra-project/saelem/commit/b6456a5359340f948f523045be2a4d5094e7dc1f))
+-   really fix publishing to gpr ([7cde9eb](https://github.com/skyra-project/saelem/commit/7cde9ebdb65509f0e9c8463782b8b3a4d2d65c19))
 
 ### [1.0.2](https://github.com/skyra-project/saelem/compare/v1.0.0...v1.0.2) (2020-07-01)
 
-
 ### Bug Fixes
 
-* **readme:** simplify install section ([de67adc](https://github.com/skyra-project/saelem/commit/de67adc5470a1e7995ec1ecf2b6cb265b0977efe))
-* fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
-* fixed link in README ([b6456a5](https://github.com/skyra-project/saelem/commit/b6456a5359340f948f523045be2a4d5094e7dc1f))
-* really fix publishing to gpr ([7cde9eb](https://github.com/skyra-project/saelem/commit/7cde9ebdb65509f0e9c8463782b8b3a4d2d65c19))
+-   **readme:** simplify install section ([de67adc](https://github.com/skyra-project/saelem/commit/de67adc5470a1e7995ec1ecf2b6cb265b0977efe))
+-   fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
+-   fixed link in README ([b6456a5](https://github.com/skyra-project/saelem/commit/b6456a5359340f948f523045be2a4d5094e7dc1f))
+-   really fix publishing to gpr ([7cde9eb](https://github.com/skyra-project/saelem/commit/7cde9ebdb65509f0e9c8463782b8b3a4d2d65c19))
 
 ### [1.0.1](https://github.com/skyra-project/saelem/compare/v1.0.0...v1.0.1) (2020-07-01)
 
-
 ### Bug Fixes
 
-* fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
+-   fixed gh package publish ([7cb3d23](https://github.com/skyra-project/saelem/commit/7cb3d23eccf89ba6263218dfe26075048c7ef489))
 
 ## 1.0.0 (2020-07-01)
 
-
 ### Features
 
-* repo setup ([e000d5c](https://github.com/skyra-project/saelem/commit/e000d5ce79748f67a7fc2d9b4393546ef0b86bc7))
-* update README ([8d0de23](https://github.com/skyra-project/saelem/commit/8d0de237caed298a2a793d756cc6214bfd0b69c2))
-* write api ([a57aa27](https://github.com/skyra-project/saelem/commit/a57aa278bd65c20ba951614fb007a86507f95e6f))
+-   repo setup ([e000d5c](https://github.com/skyra-project/saelem/commit/e000d5ce79748f67a7fc2d9b4393546ef0b86bc7))
+-   update README ([8d0de23](https://github.com/skyra-project/saelem/commit/8d0de237caed298a2a793d756cc6214bfd0b69c2))
+-   write api ([a57aa27](https://github.com/skyra-project/saelem/commit/a57aa278bd65c20ba951614fb007a86507f95e6f))
