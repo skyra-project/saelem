@@ -52,6 +52,7 @@
     -   [Dockerhub] as `skyra-project/saelem`
     -   [GitHub Package Registry] as `docker.pkg.github.com/skyra-project/saelem/saelem`
 -   Makes use of [Astrology.tv] by [Keli Fox]
+-   Data gets cached in a Redis instance to prevent over-fetching [Astrology.tv]
 
 # Installation
 

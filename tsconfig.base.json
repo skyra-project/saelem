@@ -1,7 +1,7 @@
 {
-  "extends": "@favware/ts-config",
-  "compilerOptions": {
-    "module": "CommonJS",
-    "moduleResolution": "Node"
-  }
+	"extends": "@favware/ts-config",
+	"compilerOptions": {
+		"importsNotUsedAsValues": "error",
+		"useDefineForClassFields": true
+	}
 }

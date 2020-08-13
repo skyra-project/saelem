@@ -1,11 +1,11 @@
+import tabs from '@lib/defaultPlaygroundTabs';
+import HoroscopeResolver from '@lib/resolver';
+import days from '@utils/days';
+import sunsigns from '@utils/sunsigns';
 import { ApolloServer } from 'apollo-server-express';
 import express from 'express';
 import type { GraphQLSchema } from 'graphql';
 import { buildSchemaSync, registerEnumType } from 'type-graphql';
-import tabs from './defaultPlaygroundTabs';
-import HoroscopeResolver from './resolvers/HoroscopeResolver';
-import days from './utils/days';
-import sunsigns from './utils/sunsigns';
 
 export const buildGqlSchema = (): GraphQLSchema => {
 	registerEnumType(sunsigns, {

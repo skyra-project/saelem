@@ -3,7 +3,7 @@ name: Continuous Integration
 on:
     pull_request:
     push:
-        branches-ignore:
+        branches:
             - staging
             - main
 

@@ -1,7 +1,7 @@
+import days from '@utils/days';
+import sunsigns from '@utils/sunsigns';
 import { IsIn, IsString } from 'class-validator';
 import { ArgsType, Field } from 'type-graphql';
-import days from '../utils/days';
-import sunsigns from '../utils/sunsigns';
 
 @ArgsType()
 export default class HoroscopeArgs {
