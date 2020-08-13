@@ -229,7 +229,9 @@ jobs:
                   name: changelog_bundle
             - name: Generate GraphQL Schema code
               run: |
-                  docker container run --name saelem -d --expose 8080 -p 8284:8080 -it skyrabot/saelem:latest \
+                  docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
+                  && sleep 5 \
+                  && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
                   && sleep 5 \
                   && yarn codegen
             - name: Upload typescript bundle to artifacts
