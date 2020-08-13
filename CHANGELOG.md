@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.0.0](https://github.com/skyra-project/saelem/compare/v1.1.1...v2.0.0) (2020-08-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* Redis is now required to run Saelem. For local development you will find a
+docker-compose file. For production environment see the setup used in
+[Skyra](https://github.com/skyra-project/skyra)
+
+### Features
+
+* implement redis based caching ([#6](https://github.com/skyra-project/saelem/issues/6)) ([fe89c7d](https://github.com/skyra-project/saelem/commit/fe89c7d0043059d6ef812a479169610e17bdba7f))
+
+
+### Bug Fixes
+
+* add module-alias dev-dep ([009d524](https://github.com/skyra-project/saelem/commit/009d52492910ec5134950cdc814caefd9ed38e91))
+
 ### [1.1.1](https://github.com/skyra-project/saelem/compare/v1.1.0...v1.1.1) (2020-07-26)
 
 ## [1.1.0](https://github.com/skyra-project/saelem/compare/v1.0.9...v1.1.0) (2020-07-26)
