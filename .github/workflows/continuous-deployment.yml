@@ -8,6 +8,7 @@ on:
             - 'src/**'
             - '.github/**'
             - 'README.md'
+            - 'Dockerfile'
 
 jobs:
     Linting:
