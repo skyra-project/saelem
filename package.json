@@ -42,7 +42,7 @@
 		"@skyra/timestamp": "^1.0.0",
 		"@types/cheerio": "^0.22.21",
 		"@types/express": "^4.17.7",
-		"@types/jest": "^26.0.9",
+		"@types/jest": "^26.0.10",
 		"@types/module-alias": "^2.0.0",
 		"@types/node": "^14.0.27",
 		"@types/node-fetch": "^2.5.7",
