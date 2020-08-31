@@ -10,7 +10,6 @@
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
 		"format": "prettier --write --loglevel=warn src/**/*.{ts,json}",
-		"format:check": "prettier --check --loglevel=warn src/**/*.{ts,json}",
 		"test": "jest",
 		"start": "node generated/api",
 		"build": "tsc -b src",
