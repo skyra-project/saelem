@@ -2,8 +2,8 @@ import tabs from '@lib/defaultPlaygroundTabs';
 import HoroscopeResolver from '@lib/resolver';
 import days from '@utils/days';
 import sunsigns from '@utils/sunsigns';
-import { ApolloServer } from 'apollo-server-express';
-import express from 'express';
+import { ApolloServer } from 'apollo-server-koa';
+import Koa from 'koa';
 import type { GraphQLSchema } from 'graphql';
 import { buildSchemaSync, registerEnumType } from 'type-graphql';
 
@@ -24,9 +24,9 @@ export const buildGqlSchema = (): GraphQLSchema => {
 	});
 };
 
-const gqlServer = (): ReturnType<typeof express> => {
+const gqlServer = (): Koa<Koa.DefaultState, Koa.DefaultContext> => {
 	const schema = buildGqlSchema();
-	const app = express();
+	const app = new Koa();
 	const apolloServer = new ApolloServer({
 		schema,
 		introspection: true,

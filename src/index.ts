@@ -5,7 +5,7 @@ import gqlServer from './server';
 const port = process.env.PORT || 8284;
 const server = gqlServer();
 
-server.listen(port, () => {
+server.listen({ port: Number(port) }, () => {
 	console.log(`server started on http://localhost:${port}`);
 });
 
