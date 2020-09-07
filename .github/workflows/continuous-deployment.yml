@@ -106,10 +106,11 @@ jobs:
               with:
                   build: src
             - name: Upload API bundle to artifacts
-              uses: actions/upload-artifact@v2-preview
+              uses: actions/upload-artifact@v2
               with:
                   name: api_bundle
                   path: generated/api/
+                  if-no-files-found: error
 
     Dockerhub:
         name: Publish image to Dockerhub
@@ -154,11 +155,44 @@ jobs:
                   tags: 'latest,stable,master,main'
                   registry: docker.pkg.github.com
 
+    GenerateTypings:
+        name: Generate TypeScript, and SDL type information
+        runs-on: ubuntu-latest
+        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
+        needs: [Dockerhub, Github-Package-Registry-Docker]
+        steps:
+            - name: Checkout Project
+              uses: actions/checkout@v2
+            - name: Use Node.js 14
+              uses: actions/setup-node@v1
+              with:
+                  node-version: 14
+            - name: Restore CI Cache
+              uses: actions/cache@v1
+              with:
+                  path: node_modules
+                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+            - name: Install NodeJS Dependencies
+              run: yarn
+            - name: Generate GraphQL Schema code
+              run: |
+                  docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
+                  && sleep 5 \
+                  && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
+                  && sleep 5 \
+                  && yarn codegen
+            - name: Upload typescript bundle to artifacts
+              uses: actions/upload-artifact@v2
+              with:
+                  name: typescript_bundle
+                  path: generated/ts/
+                  if-no-files-found: error
+
     GithubPublish:
         name: Publishing release to Github
         runs-on: ubuntu-latest
         if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: Dockerhub
+        needs: GenerateTypings
         steps:
             - name: Checkout Project
               uses: actions/checkout@v2
@@ -188,64 +222,26 @@ jobs:
               if: "!contains(github.event.head_commit.message, '[skip bump]')"
               run: yarn sversion
             - name: Store bumped package.json
-              uses: actions/upload-artifact@v2-preview
+              uses: actions/upload-artifact@v2
               with:
                   name: package_bundle
                   path: package.json
+                  if-no-files-found: error
             - name: Store bumped changelog.md
-              uses: actions/upload-artifact@v2-preview
+              uses: actions/upload-artifact@v2
               with:
                   name: changelog_bundle
                   path: CHANGELOG.md
+                  if-no-files-found: error
             - name: Push changes
               if: "!contains(github.event.head_commit.message, '[skip bump]')"
               run: git push --follow-tags origin main
-
-    GenerateTypings:
-        name: Generate TypeScript, and SDL type information
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GithubPublish
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js 14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install NodeJS Dependencies
-              run: yarn
-            - name: Download stored package.json
-              uses: actions/download-artifact@v2-preview
-              with:
-                  name: package_bundle
-            - name: Download stored changelog.md
-              uses: actions/download-artifact@v2-preview
-              with:
-                  name: changelog_bundle
-            - name: Generate GraphQL Schema code
-              run: |
-                  docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
-                  && sleep 5 \
-                  && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
-                  && sleep 5 \
-                  && yarn codegen
-            - name: Upload typescript bundle to artifacts
-              uses: actions/upload-artifact@v2-preview
-              with:
-                  name: typescript_bundle
-                  path: generated/ts/
 
     NPMPublish:
         name: Publishing release to NPM
         runs-on: ubuntu-latest
         if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GenerateTypings
+        needs: GithubPublish
         steps:
             - name: Checkout Project
               uses: actions/checkout@v2
@@ -276,7 +272,7 @@ jobs:
         name: Publishing release to Github Package Registry
         runs-on: ubuntu-latest
         if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GenerateTypings
+        needs: GithubPublish
         steps:
             - name: Checkout Project
               uses: actions/checkout@v2
