@@ -1,7 +1,7 @@
 version: '2.4'
 services:
     redis:
-        container_name: saelem-dev-redis
+        container_name: redis
         image: redis:alpine
         restart: 'no'
         ports:
