@@ -1,6 +1,6 @@
 {
 	"name": "@skyra/saelem",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "GraphQL Horoscope API for Skyra",
 	"author": "@skyra",
 	"license": "MIT",
