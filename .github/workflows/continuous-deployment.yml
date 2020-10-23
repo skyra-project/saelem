@@ -6,7 +6,7 @@ on:
             - main
         paths:
             - 'src/**'
-            - '.github/**'
+            - '.github/workflows/continuous-deployment.yml'
             - 'README.md'
             - 'Dockerfile'
 
