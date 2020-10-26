@@ -1,4 +1,6 @@
-module.exports = {
+import type { Config } from '@jest/types';
+
+export default async (): Promise<Config.InitialOptions> => ({
 	preset: 'ts-jest',
 	testEnvironment: 'node',
 	testRunner: 'jest-circus/runner',
@@ -12,7 +14,7 @@ module.exports = {
 	},
 	globals: {
 		'ts-jest': {
-			tsConfig: '<rootDir>/tests/tsconfig.json'
+			tsconfig: '<rootDir>/tests/tsconfig.json'
 		}
 	}
-};
+});
