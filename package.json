@@ -66,7 +66,7 @@
 		"prettier": "^2.1.2",
 		"pretty-quick": "^3.1.0",
 		"redis": "^3.0.2",
-		"redis-mock": "^0.52.0",
+		"redis-mock": "^0.54.0",
 		"reflect-metadata": "^0.1.13",
 		"replace-in-file": "^6.1.0",
 		"standard-version": "^9.0.0",
