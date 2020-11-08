@@ -121,7 +121,7 @@ jobs:
             - name: Checkout Project
               uses: actions/checkout@v2
             - name: Download build bundle artifact
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: api_bundle
                   path: generated/api/
@@ -142,7 +142,7 @@ jobs:
             - name: Checkout Project
               uses: actions/checkout@v2
             - name: Download build bundle artifact
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: api_bundle
                   path: generated/api/
@@ -251,16 +251,16 @@ jobs:
                   node-version: 14
                   registry-url: https://registry.npmjs.org/
             - name: Download generated typings artifact
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: typescript_bundle
                   path: generated/ts/
             - name: Download stored package.json
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: package_bundle
             - name: Download stored changelog.md
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: changelog_bundle
             - name: Publish to NPM
@@ -283,16 +283,16 @@ jobs:
                   registry-url: 'https://npm.pkg.github.com'
                   scope: '@skyra-project'
             - name: Download generated typings artifact
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: typescript_bundle
                   path: generated/ts/
             - name: Download stored package.json
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: package_bundle
             - name: Download stored changelog.md
-              uses: actions/download-artifact@v2-preview
+              uses: actions/download-artifact@v2
               with:
                   name: changelog_bundle
             - name: Set correct author in package.json
