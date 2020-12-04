@@ -1,47 +1,26 @@
 <div align="center">
-  <p>
-  <img style="height: 200px" src="https://cdn.skyra.pw/gh-assets/saelem.png" height="200" alt="logo"/>
-  </p>
 
-  <p>
-<h1> Saelem </h1>
-<h3> Horoscope API for <a href="https://github.com/skyra-project/skyra">Skyra<a></h3>
-  </p>
+<img style="height: 200px" src="https://cdn.skyra.pw/gh-assets/saelem.png" height="200" alt="logo"/>
+
+# Saelem
+
+**Horoscope API for [Skyra]**
+
+[![GitHub](https://img.shields.io/github/license/skyra-project/saelem)](https://github.com/skyra-project/saelem/blob/main/LICENSE.md)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/skyra-project/saelem.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/skyra-project/saelem/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/skyra-project/saelem.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/skyra-project/saelem/context:javascript)
+[![npm](https://img.shields.io/npm/v/@skyra/saelem?color=crimson&label=TypeScript%20version&logo=npm&style=flat-square)](https://www.npmjs.com/package/@skyra/saelem)
+[![Depfu](https://badges.depfu.com/badges/785b29d93aecce969a40182f63514e66/count.svg)](https://depfu.com/github/skyra-project/saelem?project_id=13933)
+
+[![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw/sapphire)
 
 </div>
 
 ---
 
-**Table of Contents**
+## Description
 
--   [Installation](#installation)
--   [Usage](#usage)
--   [Meta](#meta)
-    -   [License](#license)
-    -   [Buy us some doughnuts](#buy-us-some-doughnuts)
-
----
-
-**Project Status**
-
-[![GitHub](https://img.shields.io/github/license/skyra-project/saelem?logo=github&style=flat-square)](https://github.com/skyra-project/saelem/blob/main/LICENSE.md)
-[![Continuous Deployment](https://github.com/skyra-project/saelem/workflows/Continuous%20Deployment/badge.svg)](https://github.com/skyra-project/saelem/actions?query=workflow%3A"Continuous+Deployment")
-
-**Social Media and Donations**
-
-[![Join Discord server](https://img.shields.io/discord/512303595966824458?color=697EC4&label=Join%20Discord%20Server&logo=discord&logoColor=FDFEFE&style=flat-square)](https://join.skyra.pw)
-[![Twitter Follow](https://img.shields.io/twitter/follow/favna_?label=Follow%20@Favna_&logo=twitter&colorB=1DA1F2&style=flat-square)](https://twitter.com/Favna_/follow)
-[![Twitter Follow](https://img.shields.io/twitter/follow/kyranet_?label=Follow%20@kyranet_&logo=twitter&colorB=1DA1F2&style=flat-square)](https://twitter.com/kyranet_/follow)
-[![Patreon Donate](https://img.shields.io/badge/patreon-donate-brightgreen.svg?label=Donate%20with%20Patreon&logo=patreon&colorB=F96854&style=flat-square&link=https://donate.skyra.pw/patreon)](https://donate.skyra.pw/patreon)
-[![PayPal Donate](https://img.shields.io/badge/paypal-donate-brightgreen.svg?label=Donate%20with%20Paypal&logo=paypal&colorB=00457C&style=flat-square&link=https://donate.skyra.pw/paypal)](https://donate.skyra.pw/paypal)
-
-**Typings**
-
-[![npm](https://img.shields.io/npm/v/@skyra/saelem?color=crimson&label=TypeScript%20version&logo=npm&style=flat-square)](https://www.npmjs.com/package/@skyra/saelem)
-
----
-
-**_Query Horoscope data using GraphQL_**
+Horoscope query GraphQL API for [Skyra]
 
 **Key Features**
 
@@ -54,7 +33,7 @@
 -   Makes use of [Astrology.tv] by [Keli Fox]
 -   Data gets cached in a Redis instance to prevent over-fetching [Astrology.tv]
 
-# Installation
+## Installation
 
 Install client side typings from [yarn] or [npm]:
 
@@ -68,7 +47,7 @@ npm install -D @skyra/saelem
 
 ---
 
-# Usage
+## Usage
 
 ```ts
 import { Query } from '@skyra/saelem';
@@ -101,13 +80,6 @@ fetch('http://localhost:8284', {
 	.then((json) => console.log(json.data));
 ```
 
-# Meta
-
-## License
-
-Copyright © 2020, [Skyra Project](https://github.com/skyra-project).
-Released under the [MIT License](LICENSE.md).
-
 ## Buy us some doughnuts
 
 Skyra Project is open source and always will be, even if we don't get donations. That said, we know there are amazing people who
@@ -135,10 +107,11 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <td align="center"><a href="https://github.com/favna/"><img src="https://avatars3.githubusercontent.com/u/4019718?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Jeroen Claassens</b></sub></a><br /><a href="https://github.com/skyra-project/saelem/commits?author=Favna" title="Code">💻</a> <a href="https://github.com/skyra-project/saelem/commits?author=Favna" title="Documentation">📖</a> <a href="#infra-Favna" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#projectManagement-Favna" title="Project Management">📆</a> <a href="https://github.com/skyra-project/saelem/commits?author=Favna" title="Tests">⚠️</a></td>
     <td align="center"><a href="https://github.com/kyranet"><img src="https://avatars0.githubusercontent.com/u/24852502?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Antonio Román</b></sub></a><br /><a href="#projectManagement-kyranet" title="Project Management">📆</a></td>
     <td align="center"><a href="https://skyra.pw/"><img src="https://avatars0.githubusercontent.com/u/61647701?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Skyra</b></sub></a><br /><a href="#infra-NM-EEA-Y" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/apps/depfu"><img src="https://avatars3.githubusercontent.com/in/715?v=4?s=100" width="100px;" alt=""/><br /><sub><b>depfu[bot]</b></sub></a><br /><a href="#maintenance-depfu[bot]" title="Maintenance">🚧</a></td>
   </tr>
 </table>
 
-<!-- markdownlint-enable -->
+<!-- markdownlint-restore -->
 <!-- prettier-ignore-end -->
 
 <!-- ALL-CONTRIBUTORS-LIST:END -->
@@ -158,3 +131,4 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 [bitcoinimage]: https://cdn.skyra.pw/gh-assets/bitcoin.png
 [ethereumimage]: https://cdn.skyra.pw/gh-assets/ethereum.png
 [litecoinimage]: https://cdn.skyra.pw/gh-assets/litecoin.png
+[skyra]: https://github.com/skyra-project/skyra
