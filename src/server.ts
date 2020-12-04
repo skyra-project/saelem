@@ -1,10 +1,10 @@
-import tabs from '@lib/defaultPlaygroundTabs';
-import HoroscopeResolver from '@lib/resolver';
-import days from '@utils/days';
-import sunsigns from '@utils/sunsigns';
+import tabs from '#lib/defaultPlaygroundTabs';
+import HoroscopeResolver from '#lib/resolver';
+import days from '#utils/days';
+import sunsigns from '#utils/sunsigns';
 import { ApolloServer } from 'apollo-server-koa';
-import Koa from 'koa';
 import type { GraphQLSchema } from 'graphql';
+import Koa from 'koa';
 import { buildSchemaSync, registerEnumType } from 'type-graphql';
 
 export const buildGqlSchema = (): GraphQLSchema => {

@@ -1,4 +1,4 @@
-import type sunsigns from '@utils/sunsigns';
+import type sunsigns from '#utils/sunsigns';
 
 export const enum RedisClientEvents {
 	Message = 'message',

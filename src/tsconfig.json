@@ -5,13 +5,12 @@
 		"rootDir": ".",
 		"baseUrl": ".",
 		"composite": true,
-		"target": "ESNext",
 		"paths": {
-			"@utils/*": ["lib/utils/*"],
-			"@redis/*": ["lib/redis/*"],
-			"@lib/*": ["lib/*"],
-			"@root/*": ["./*"]
+			"#utils/*": ["lib/utils/*"],
+			"#redis/*": ["lib/redis/*"],
+			"#lib/*": ["lib/*"],
+			"#root/*": ["./*"]
 		}
 	},
-	"include": ["./**/*.ts"]
+	"include": ["."]
 }
