@@ -1,6 +1,6 @@
-import { constants } from '@skyra/timestamp';
-import Days from '@utils/days';
-import Sunsigns from '@utils/sunsigns';
+import Days from '#utils/days';
+import Sunsigns from '#utils/sunsigns';
+import { Time } from '@sapphire/time-utilities';
 import { DataResponse, formatResponse, gCall, gql } from './testUtils';
 
 describe('getHoroscope', () => {
@@ -35,7 +35,7 @@ describe('getHoroscope', () => {
 	});
 
 	test('GIVEN yesterday date THEN defaults to today', async () => {
-		const timestamp = new Date(Date.now() - constants.day);
+		const timestamp = new Date(Date.now() - Time.Day);
 
 		const { data } = (await gCall({
 			source: getHoroscope,
@@ -47,7 +47,7 @@ describe('getHoroscope', () => {
 	});
 
 	test('GIVEN tomorrow date THEN defaults to today', async () => {
-		const timestamp = new Date(Date.now() + constants.day);
+		const timestamp = new Date(Date.now() + Time.Day);
 
 		const { data } = (await gCall({
 			source: getHoroscope,

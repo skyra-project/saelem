@@ -1,4 +1,3 @@
-import 'module-alias/register';
 import 'reflect-metadata';
 import gqlServer from './server';
 
@@ -9,4 +8,4 @@ server.listen({ port: Number(port) }, () => {
 	console.log(`server started on http://localhost:${port}`);
 });
 
-import '@redis/client';
+import '#redis/client';

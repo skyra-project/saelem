@@ -1,4 +1,4 @@
-import type { RedisEntry } from '@redis/RedisTypes';
+import type { RedisEntry } from '#redis/RedisTypes';
 import { Field, Int, ObjectType } from 'type-graphql';
 
 @ObjectType({ description: 'The horoscope data on a specific star sign' })

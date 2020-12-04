@@ -1,6 +1,11 @@
 {
-	"extends": ["@favware", "plugin:prettier/recommended"],
-	"parserOptions": {
-		"extraFileExtensions": [".mjs"]
-	}
+	"extends": ["@sapphire"],
+	"overrides": [
+		{
+			"files": ["./src/config.ts", "./tests/jest.setup.ts"],
+			"rules": {
+				"@typescript-eslint/naming-convention": 0
+			}
+		}
+	]
 }

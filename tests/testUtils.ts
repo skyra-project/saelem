@@ -1,11 +1,12 @@
 // Copyright (c) 2019 Favware. All rights reserved. MIT license.
 // Source: https://github.com/favware/graphql-pokemon
 
-import { buildGqlSchema } from '@root/server';
-import type Days from '@utils/days';
-import type Sunsigns from '@utils/sunsigns';
+import { buildGqlSchema } from '#root/server';
+import type Days from '#utils/days';
+import type Sunsigns from '#utils/sunsigns';
 import { graphql, GraphQLSchema } from 'graphql';
 
+// eslint-disable-next-line @typescript-eslint/init-declarations
 let schema: GraphQLSchema;
 
 export const gCall = async <V = QueryGetHoroscopeArgs>({ source, variableValues }: GCallOptions<V>) => {

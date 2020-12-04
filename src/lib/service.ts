@@ -1,15 +1,17 @@
-import HoroscopeEntry from '@lib/entry';
-import { getRedisCache, redisClient } from '@redis/client';
-import type { RedisStructure } from '@redis/RedisTypes';
-import { constants } from '@skyra/timestamp';
-import type days from '@utils/days';
-import type sunsigns from '@utils/sunsigns';
-import { toTitleCase } from '@utils/utils';
+import HoroscopeEntry from '#lib/entry';
+import { redisClient } from '#redis/client';
+import type { RedisStructure } from '#redis/RedisTypes';
+import type days from '#utils/days';
+import type sunsigns from '#utils/sunsigns';
+import { Time } from '@sapphire/time-utilities';
+import { toTitleCase } from '@sapphire/utilities';
 import { load as cheerio } from 'cheerio';
 import fetch, { RequestInit } from 'node-fetch';
 
 export default class HoroscopeService {
-	#baseSeletor = '.sign-hero__horoscope-wrapper > .day-tabs-content--sign-page';
+	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
+	#baseSeletor = '.sign-hero__horoscope-wrapper > div > .day-tabs-content--sign-page';
+	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#fetchOptions: RequestInit = {
 		headers: {
 			accept: '*/*',
@@ -29,7 +31,7 @@ export default class HoroscopeService {
 		const { modifiedDate, dateCacheKey, daySelector } = this.getDateData(day);
 
 		// Get the cache entry for that day
-		const cachedDate = await getRedisCache(dateCacheKey);
+		const cachedDate = await redisClient.get(dateCacheKey);
 
 		if (cachedDate) {
 			// If the day has a cached entry then get the entry for that sunsign
@@ -40,13 +42,14 @@ export default class HoroscopeService {
 			if (cachedHoroscope) return HoroscopeEntry.generateFromCache(cachedHoroscope);
 		}
 
+		// eslint-disable-next-line @typescript-eslint/init-declarations
 		let horoscopeQueryable: ReturnType<typeof cheerio>;
 		try {
 			// Request the page for this horoscope
 			const horoscopeResp = await fetch(`https://astrology.tv/horoscope/signs/${sunsign}`, this.#fetchOptions);
 
 			// If the request was not ok then throw to catch
-			if (!horoscopeResp.ok) throw '💥';
+			if (!horoscopeResp.ok) throw new Error('🧨');
 
 			const text = await horoscopeResp.text();
 			// Parse the raw body with cheerio
@@ -76,7 +79,7 @@ export default class HoroscopeService {
 			if (cachedDate) redisCache = JSON.parse(cachedDate);
 
 			redisCache[sunsign] = HoroscopeEntry.convertToCacheEntry(horoscopeEntry);
-			redisClient.setex(dateCacheKey, (constants.day * 2) / 1000, JSON.stringify(redisCache));
+			redisClient.psetex(dateCacheKey, Time.Day * 2, JSON.stringify(redisCache));
 
 			return horoscopeEntry;
 		} catch (error) {
@@ -85,6 +88,7 @@ export default class HoroscopeService {
 	}
 
 	private getDateData(day: keyof typeof days): DateData {
+		// eslint-disable-next-line @typescript-eslint/switch-exhaustiveness-check
 		switch (day) {
 			case 'today': {
 				const today = new Date(Date.now());
@@ -95,7 +99,7 @@ export default class HoroscopeService {
 				};
 			}
 			case 'tomorrow': {
-				const tomorrow = new Date(Date.now() + constants.day);
+				const tomorrow = new Date(Date.now() + Time.Day);
 				return {
 					dateCacheKey: tomorrow.setHours(0, 0, 0, 0).toString(),
 					modifiedDate: tomorrow,
@@ -103,7 +107,7 @@ export default class HoroscopeService {
 				};
 			}
 			case 'yesterday': {
-				const yesterday = new Date(Date.now() - constants.day);
+				const yesterday = new Date(Date.now() - Time.Day);
 				return {
 					dateCacheKey: yesterday.setHours(0, 0, 0, 0).toString(),
 					modifiedDate: yesterday,

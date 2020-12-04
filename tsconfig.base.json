@@ -1,7 +1,6 @@
 {
-	"extends": "@favware/ts-config",
+	"extends": "@sapphire/ts-config",
 	"compilerOptions": {
-		"importsNotUsedAsValues": "error",
-		"useDefineForClassFields": true
+		"target": "ESNext"
 	}
 }
