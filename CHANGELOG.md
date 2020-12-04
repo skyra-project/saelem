@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0](https://github.com/skyra-project/saelem/compare/v2.0.4...v3.0.0) (2020-12-04)
+
+
+### ⚠ BREAKING CHANGES
+
+* module-alias is no longer used, instead using NodeJS build in import subpaths. This
+is a breaking change because this forces the use of NodeJS 14 or higher to run the API.
+
+### Features
+
+* rewrite to use more recent/maintained libraries ([674194c](https://github.com/skyra-project/saelem/commit/674194cbf473eab860e1592e7e34dcd58102c2c8)), closes [#26](https://github.com/skyra-project/saelem/issues/26)
+
 ### [2.0.4](https://github.com/skyra-project/saelem/compare/v2.0.3...v2.0.4) (2020-11-08)
 
 ### [2.0.3](https://github.com/skyra-project/saelem/compare/v2.0.2...v2.0.3) (2020-10-23)
