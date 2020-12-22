@@ -1,55 +1,41 @@
 {
-  "projectName": "saelem",
-  "projectOwner": "skyra-project",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": true,
-  "commitConvention": "angular",
-  "contributors": [
-    {
-      "login": "Favna",
-      "name": "Jeroen Claassens",
-      "avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
-      "profile": "https://github.com/favna/",
-      "contributions": [
-        "code",
-        "doc",
-        "infra",
-        "projectManagement",
-        "test"
-      ]
-    },
-    {
-      "login": "kyranet",
-      "name": "Antonio Román",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/24852502?v=4",
-      "profile": "https://github.com/kyranet",
-      "contributions": [
-        "projectManagement"
-      ]
-    },
-    {
-      "login": "NM-EEA-Y",
-      "name": "Skyra",
-      "avatar_url": "https://avatars0.githubusercontent.com/u/61647701?v=4",
-      "profile": "https://skyra.pw/",
-      "contributions": [
-        "infra"
-      ]
-    },
-    {
-      "login": "depfu[bot]",
-      "name": "depfu[bot]",
-      "avatar_url": "https://avatars3.githubusercontent.com/in/715?v=4",
-      "profile": "https://github.com/apps/depfu",
-      "contributions": [
-        "maintenance"
-      ]
-    }
-  ],
-  "contributorsPerLine": 7
+	"projectName": "saelem",
+	"projectOwner": "skyra-project",
+	"repoType": "github",
+	"repoHost": "https://github.com",
+	"files": ["README.md"],
+	"imageSize": 100,
+	"commit": true,
+	"commitConvention": "angular",
+	"contributors": [
+		{
+			"login": "Favna",
+			"name": "Jeroen Claassens",
+			"avatar_url": "https://avatars3.githubusercontent.com/u/4019718?v=4",
+			"profile": "https://github.com/favna/",
+			"contributions": ["code", "doc", "infra", "projectManagement", "test"]
+		},
+		{
+			"login": "kyranet",
+			"name": "Antonio Román",
+			"avatar_url": "https://avatars0.githubusercontent.com/u/24852502?v=4",
+			"profile": "https://github.com/kyranet",
+			"contributions": ["projectManagement"]
+		},
+		{
+			"login": "NM-EEA-Y",
+			"name": "Skyra",
+			"avatar_url": "https://avatars0.githubusercontent.com/u/61647701?v=4",
+			"profile": "https://skyra.pw/",
+			"contributions": ["infra"]
+		},
+		{
+			"login": "depfu[bot]",
+			"name": "depfu[bot]",
+			"avatar_url": "https://avatars3.githubusercontent.com/in/715?v=4",
+			"profile": "https://github.com/apps/depfu",
+			"contributions": ["maintenance"]
+		}
+	],
+	"contributorsPerLine": 7
 }

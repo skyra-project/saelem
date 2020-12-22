@@ -1,303 +1,303 @@
 name: Continuous Deployment
 
 on:
-    push:
-        branches:
-            - main
-        paths:
-            - 'src/**'
-            - '.github/workflows/continuous-deployment.yml'
-            - 'README.md'
-            - 'Dockerfile'
+  push:
+    branches:
+      - main
+    paths:
+      - 'src/**'
+      - '.github/workflows/continuous-deployment.yml'
+      - 'README.md'
+      - 'Dockerfile'
 
 jobs:
-    Linting:
-        name: Linting
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js 14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install Deps
-              run: yarn
-            - name: Run ESLint
-              uses: icrawl/action-eslint@v1
+  Linting:
+    name: Linting
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Deps
+        run: yarn
+      - name: Run ESLint
+        uses: icrawl/action-eslint@v1
 
-    CodeQL:
-        name: Codequality
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        runs-on: ubuntu-latest
-        steps:
-            - name: Checkout repository
-              uses: actions/checkout@v2
-              with:
-                  # We must fetch at least the immediate parents so that if this is
-                  # a pull request then we can checkout the head.
-                  fetch-depth: 2
+  CodeQL:
+    name: Codequality
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          # We must fetch at least the immediate parents so that if this is
+          # a pull request then we can checkout the head.
+          fetch-depth: 2
 
-            # If this run was triggered by a pull request event, then checkout
-            # the head of the pull request instead of the merge commit.
-            - run: git checkout HEAD^2
-              if: ${{ github.event_name == 'pull_request' }}
+      # If this run was triggered by a pull request event, then checkout
+      # the head of the pull request instead of the merge commit.
+      - run: git checkout HEAD^2
+        if: ${{ github.event_name == 'pull_request' }}
 
-            # Initializes the CodeQL tools for scanning.
-            - name: Initialize CodeQL
-              uses: github/codeql-action/init@v1
+      # Initializes the CodeQL tools for scanning.
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
 
-            # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
-            # If this step fails, then you should remove it and run the build manually (see below)
-            - name: Autobuild
-              uses: github/codeql-action/autobuild@v1
+      # Autobuild attempts to build any compiled languages  (C/C++, C#, or Java).
+      # If this step fails, then you should remove it and run the build manually (see below)
+      - name: Autobuild
+        uses: github/codeql-action/autobuild@v1
 
-            - name: Perform CodeQL Analysis
-              uses: github/codeql-action/analyze@v1
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
 
-    Testing:
-        name: Unit Tests
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js v14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install Dependencies
-              run: yarn
-            - name: Run Jest
-              run: yarn test
+  Testing:
+    name: Unit Tests
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js v14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies
+        run: yarn
+      - name: Run Jest
+        run: yarn test
 
-    Build:
-        name: Compiling TypeScript
-        runs-on: ubuntu-latest
-        if: "!contains(github.event.head_commit.message, '[skip ci]')"
-        needs: [Testing, Linting, CodeQL]
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js 14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install NodeJS Dependencies
-              run: yarn
-            - name: Compile TypeScript
-              uses: icrawl/action-tsc@v1
-              with:
-                  build: src
-            - name: Upload API bundle to artifacts
-              uses: actions/upload-artifact@v2
-              with:
-                  name: api_bundle
-                  path: generated/api/
-                  if-no-files-found: error
+  Build:
+    name: Compiling TypeScript
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+    needs: [Testing, Linting, CodeQL]
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install NodeJS Dependencies
+        run: yarn
+      - name: Compile TypeScript
+        uses: icrawl/action-tsc@v1
+        with:
+          build: src
+      - name: Upload API bundle to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: api_bundle
+          path: generated/api/
+          if-no-files-found: error
 
-    Dockerhub:
-        name: Publish image to Dockerhub
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') ||contains(github.event.head_commit.message, '[skip docker]'))"
-        needs: Build
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Download build bundle artifact
-              uses: actions/download-artifact@v2
-              with:
-                  name: api_bundle
-                  path: generated/api/
-            - name: Publish to Dockerhub
-              uses: elgohr/Publish-Docker-Github-Action@master
-              with:
-                  name: skyrabot/saelem
-                  username: ${{ secrets.DOCKER_USERNAME }}
-                  password: ${{ secrets.DOCKER_PASSWORD }}
-                  tags: 'latest,stable,master,main'
+  Dockerhub:
+    name: Publish image to Dockerhub
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') ||contains(github.event.head_commit.message, '[skip docker]'))"
+    needs: Build
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Download build bundle artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: api_bundle
+          path: generated/api/
+      - name: Publish to Dockerhub
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: skyrabot/saelem
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+          tags: 'latest,stable,master,main'
 
-    Github-Package-Registry-Docker:
-        name: Publish image to Github Package Registry
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') ||contains(github.event.head_commit.message, '[skip docker]'))"
-        needs: Build
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Download build bundle artifact
-              uses: actions/download-artifact@v2
-              with:
-                  name: api_bundle
-                  path: generated/api/
-            - name: Publish to Github Package Registry
-              uses: elgohr/Publish-Docker-Github-Action@master
-              with:
-                  name: skyra-project/saelem/saelem
-                  username: NM-EEA-Y
-                  password: ${{ secrets.SKYRA_TOKEN }}
-                  tags: 'latest,stable,master,main'
-                  registry: docker.pkg.github.com
+  Github-Package-Registry-Docker:
+    name: Publish image to Github Package Registry
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') ||contains(github.event.head_commit.message, '[skip docker]'))"
+    needs: Build
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Download build bundle artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: api_bundle
+          path: generated/api/
+      - name: Publish to Github Package Registry
+        uses: elgohr/Publish-Docker-Github-Action@master
+        with:
+          name: skyra-project/saelem/saelem
+          username: NM-EEA-Y
+          password: ${{ secrets.SKYRA_TOKEN }}
+          tags: 'latest,stable,master,main'
+          registry: docker.pkg.github.com
 
-    GenerateTypings:
-        name: Generate TypeScript, and SDL type information
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: [Dockerhub, Github-Package-Registry-Docker]
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Use Node.js 14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install NodeJS Dependencies
-              run: yarn
-            - name: Generate GraphQL Schema code
-              run: |
-                  docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
-                  && sleep 5 \
-                  && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
-                  && sleep 5 \
-                  && yarn codegen
-            - name: Upload typescript bundle to artifacts
-              uses: actions/upload-artifact@v2
-              with:
-                  name: typescript_bundle
-                  path: generated/ts/
-                  if-no-files-found: error
+  GenerateTypings:
+    name: Generate TypeScript, and SDL type information
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
+    needs: [Dockerhub, Github-Package-Registry-Docker]
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install NodeJS Dependencies
+        run: yarn
+      - name: Generate GraphQL Schema code
+        run: |
+          docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
+          && sleep 5 \
+          && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
+          && sleep 5 \
+          && yarn codegen
+      - name: Upload typescript bundle to artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: typescript_bundle
+          path: generated/ts/
+          if-no-files-found: error
 
-    GithubPublish:
-        name: Publishing release to Github
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GenerateTypings
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-              with:
-                  fetch-depth: 0
-            - name: Use Node.js 14
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-            - name: Restore CI Cache
-              uses: actions/cache@v1
-              with:
-                  path: node_modules
-                  key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
-            - name: Install NodeJS Dependencies
-              run: yarn
-            - name: Configure Git
-              run: |
-                  git remote set-url origin "https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
-                  git config --local user.email "${GITHUB_EMAIL}";
-                  git config --local user.name "${GITHUB_USER}";
-              env:
-                  GITHUB_USER: NM-EEA-Y
-                  GITHUB_EMAIL: skyra.project@gmail.com
-                  GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
-            - name: Bump semver
-              if: "!contains(github.event.head_commit.message, '[skip bump]')"
-              run: yarn sversion
-            - name: Store bumped package.json
-              uses: actions/upload-artifact@v2
-              with:
-                  name: package_bundle
-                  path: package.json
-                  if-no-files-found: error
-            - name: Store bumped changelog.md
-              uses: actions/upload-artifact@v2
-              with:
-                  name: changelog_bundle
-                  path: CHANGELOG.md
-                  if-no-files-found: error
-            - name: Push changes
-              if: "!contains(github.event.head_commit.message, '[skip bump]')"
-              run: git push --follow-tags origin main
+  GithubPublish:
+    name: Publishing release to Github
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
+    needs: GenerateTypings
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Use Node.js 14
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - name: Restore CI Cache
+        uses: actions/cache@v1
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-14-${{ hashFiles('**/yarn.lock') }}
+      - name: Install NodeJS Dependencies
+        run: yarn
+      - name: Configure Git
+        run: |
+          git remote set-url origin "https://${GITHUB_USER}:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git";
+          git config --local user.email "${GITHUB_EMAIL}";
+          git config --local user.name "${GITHUB_USER}";
+        env:
+          GITHUB_USER: NM-EEA-Y
+          GITHUB_EMAIL: skyra.project@gmail.com
+          GITHUB_TOKEN: ${{ secrets.SKYRA_TOKEN }}
+      - name: Bump semver
+        if: "!contains(github.event.head_commit.message, '[skip bump]')"
+        run: yarn sversion
+      - name: Store bumped package.json
+        uses: actions/upload-artifact@v2
+        with:
+          name: package_bundle
+          path: package.json
+          if-no-files-found: error
+      - name: Store bumped changelog.md
+        uses: actions/upload-artifact@v2
+        with:
+          name: changelog_bundle
+          path: CHANGELOG.md
+          if-no-files-found: error
+      - name: Push changes
+        if: "!contains(github.event.head_commit.message, '[skip bump]')"
+        run: git push --follow-tags origin main
 
-    NPMPublish:
-        name: Publishing release to NPM
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GithubPublish
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Setup Node for publishing to NPM
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-                  registry-url: https://registry.npmjs.org/
-            - name: Download generated typings artifact
-              uses: actions/download-artifact@v2
-              with:
-                  name: typescript_bundle
-                  path: generated/ts/
-            - name: Download stored package.json
-              uses: actions/download-artifact@v2
-              with:
-                  name: package_bundle
-            - name: Download stored changelog.md
-              uses: actions/download-artifact@v2
-              with:
-                  name: changelog_bundle
-            - name: Publish to NPM
-              run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NPMPublish:
+    name: Publishing release to NPM
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
+    needs: GithubPublish
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Setup Node for publishing to NPM
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: https://registry.npmjs.org/
+      - name: Download generated typings artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: typescript_bundle
+          path: generated/ts/
+      - name: Download stored package.json
+        uses: actions/download-artifact@v2
+        with:
+          name: package_bundle
+      - name: Download stored changelog.md
+        uses: actions/download-artifact@v2
+        with:
+          name: changelog_bundle
+      - name: Publish to NPM
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-    Github-Package-Registry-Node:
-        name: Publishing release to Github Package Registry
-        runs-on: ubuntu-latest
-        if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
-        needs: GithubPublish
-        steps:
-            - name: Checkout Project
-              uses: actions/checkout@v2
-            - name: Setup Node for publishing to Github
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 14
-                  registry-url: 'https://npm.pkg.github.com'
-                  scope: '@skyra-project'
-            - name: Download generated typings artifact
-              uses: actions/download-artifact@v2
-              with:
-                  name: typescript_bundle
-                  path: generated/ts/
-            - name: Download stored package.json
-              uses: actions/download-artifact@v2
-              with:
-                  name: package_bundle
-            - name: Download stored changelog.md
-              uses: actions/download-artifact@v2
-              with:
-                  name: changelog_bundle
-            - name: Set correct author in package.json
-              run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
-            - name: Publish to Github
-              run: npm publish
-              env:
-                  NODE_AUTH_TOKEN: ${{ secrets.SKYRA_TOKEN }}
+  Github-Package-Registry-Node:
+    name: Publishing release to Github Package Registry
+    runs-on: ubuntu-latest
+    if: "!(contains(github.event.head_commit.message, '[skip ci]') || contains(github.event.head_commit.message, '[skip publish]'))"
+    needs: GithubPublish
+    steps:
+      - name: Checkout Project
+        uses: actions/checkout@v2
+      - name: Setup Node for publishing to Github
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@skyra-project'
+      - name: Download generated typings artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: typescript_bundle
+          path: generated/ts/
+      - name: Download stored package.json
+        uses: actions/download-artifact@v2
+        with:
+          name: package_bundle
+      - name: Download stored changelog.md
+        uses: actions/download-artifact@v2
+        with:
+          name: changelog_bundle
+      - name: Set correct author in package.json
+        run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
+      - name: Publish to Github
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.SKYRA_TOKEN }}
