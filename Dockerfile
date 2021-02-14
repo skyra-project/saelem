@@ -6,7 +6,7 @@ COPY package.json ./
 COPY yarn.lock ./
 COPY .yarnclean ./
 
-RUN yarn install --frozen-lockfile --link-duplicates
+RUN yarn install --frozen-lockfile --no-bin-links --link-duplicates --ignore-scripts
 
 COPY generated/api generated/api/
 
