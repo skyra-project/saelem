@@ -45,7 +45,7 @@
 		"@graphql-codegen/typescript": "^1.21.0",
 		"@graphql-codegen/typescript-resolvers": "^1.18.2",
 		"@sapphire/eslint-config": "2.1.1",
-		"@sapphire/prettier-config": "1.0.6",
+		"@sapphire/prettier-config": "1.0.7",
 		"@sapphire/time-utilities": "^1.2.8",
 		"@sapphire/ts-config": "2.0.1",
 		"@sapphire/utilities": "^1.4.4",
