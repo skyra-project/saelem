@@ -1366,10 +1366,13 @@
   dependencies:
     "@sapphire/utilities" "^1.4.5"
 
-"@sapphire/ts-config@2.0.1":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@sapphire/ts-config/-/ts-config-2.0.1.tgz#88ab57663285b60746bb39daefef62e767d3de71"
-  integrity sha512-WEjctyHS69i4h0xsM9cOZz05AJB4Xed99PLz1s0npBmgpcIgGJGOfglPNHe/AqmhjOW8pdSBjFJejaUU5RoImg==
+"@sapphire/ts-config@2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@sapphire/ts-config/-/ts-config-2.1.0.tgz#40db7091cb4af478e4168b768702110013a14255"
+  integrity sha512-ekuBg7CV6SwNpvI4Mh9sXGgYv9lgH+bQwhkqG5agJ/x3QoDred8dsaKeIQONZ58McbNzHviWD6UKbzICrMogsg==
+  dependencies:
+    tslib "2.x"
+    typescript "4.x"
 
 "@sapphire/utilities@^1.4.5":
   version "1.4.5"
@@ -8468,15 +8471,15 @@ ts-node@^9, ts-node@^9.1.1:
     source-map-support "^0.5.17"
     yn "3.1.1"
 
+tslib@2.x, tslib@^2, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@~2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
+  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
+
 tslib@^1.10.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.14.1"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.14.1.tgz#cf2d38bdc34a134bcaf1091c41f6619e2f672d00"
   integrity sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==
-
-tslib@^2, tslib@^2.0.0, tslib@^2.0.1, tslib@^2.0.3, tslib@~2.1.0:
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.1.0.tgz#da60860f1c2ecaa5703ab7d39bc05b6bf988b97a"
-  integrity sha512-hcVC3wYEziELGGmEEXue7D75zbwIIVUMWAVbHItGPx0ziyXxrOMQx4rQEVEV45Ut/1IotuEvwqPopzIOkDMf0A==
 
 tslib@~2.0.1:
   version "2.0.3"
@@ -8576,7 +8579,7 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@^4.2.3:
+typescript@4.x, typescript@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.2.3.tgz#39062d8019912d43726298f09493d598048c1ce3"
   integrity sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
