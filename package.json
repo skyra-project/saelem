@@ -46,7 +46,7 @@
 		"@sapphire/eslint-config": "3.1.1",
 		"@sapphire/prettier-config": "1.0.9",
 		"@sapphire/time-utilities": "^1.2.12",
-		"@sapphire/ts-config": "2.1.1",
+		"@sapphire/ts-config": "2.2.0",
 		"@sapphire/utilities": "^1.4.7",
 		"@types/cheerio": "^0.22.28",
 		"@types/ioredis": "^4.22.3",
