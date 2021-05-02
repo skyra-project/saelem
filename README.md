@@ -7,8 +7,6 @@
 **Horoscope API for [Skyra]**
 
 [![GitHub](https://img.shields.io/github/license/skyra-project/saelem)](https://github.com/skyra-project/saelem/blob/main/LICENSE.md)
-[![Total alerts](https://img.shields.io/lgtm/alerts/g/skyra-project/saelem.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/skyra-project/saelem/alerts/)
-[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/skyra-project/saelem.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/skyra-project/saelem/context:javascript)
 [![npm](https://img.shields.io/npm/v/@skyra/saelem?color=crimson&label=TypeScript%20version&logo=npm&style=flat-square)](https://www.npmjs.com/package/@skyra/saelem)
 [![Depfu](https://badges.depfu.com/badges/785b29d93aecce969a40182f63514e66/count.svg)](https://depfu.com/github/skyra-project/saelem?project_id=13933)
 
