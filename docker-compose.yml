@@ -1,9 +1,32 @@
 version: '2.4'
 services:
-    redis:
-        container_name: redis
-        image: redis:alpine
-        restart: 'no'
-        ports:
-            - '8287:8287'
-        command: redis-server --port 8287 --requirepass redis
+  redis:
+    container_name: redis
+    image: redis:alpine
+    restart: 'no'
+    networks:
+      - saelem
+    ports:
+      - '8287:8287'
+    command: redis-server --port 8287 --requirepass redis
+
+  saelem:
+    build: ./
+    container_name: saelem
+    depends_on:
+      - redis
+    environment:
+      PORT: 8284
+      SAELEM_REDIS_DATABASE: 0
+      SAELEM_REDIS_HOST: redis
+      SAELEM_REDIS_PASSWORD: redis
+      SAELEM_REDIS_PORT: 8287
+    image: 'skyrabot/saelem:latest'
+    networks:
+      - saelem
+    ports:
+      - '8284:8284'
+    restart: always
+
+networks:
+  saelem:
