@@ -88,21 +88,6 @@ jobs:
       ||github.event.inputs.skip-publish == true)
     needs: [pre_ci, Publish]
     services:
-      saelem:
-        image: ghcr.io/skyra-project/saelem:latest
-        env:
-          SAELEM_REDIS_HOST: redis
-          SAELEM_REDIS_PORT: 6379
-          SAELEM_REDIS_PASSWORD: redis
-          SAELEM_REDIS_DATABASE: 0
-        options: >-
-          --health-cmd "nc -z localhost 8284"
-          --health-interval 10s
-          --health-timeout 10s
-          --health-retries 6
-          --health-start-period 20s
-        ports:
-          - 8284:8284
       redis:
         image: redis:alpine
         options: >-
@@ -110,7 +95,21 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-          redis-server --requirepass redis
+      saelem:
+        image: ghcr.io/skyra-project/saelem:latest
+        env:
+          SAELEM_REDIS_HOST: redis
+          SAELEM_REDIS_PORT: 6379
+          SAELEM_REDIS_PASSWORD: "''"
+          SAELEM_REDIS_DATABASE: 0
+        options: >-
+          --health-cmd "nc -z localhost 8284"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 6
+          --health-start-period 5s
+        ports:
+          - 8284:8284
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
