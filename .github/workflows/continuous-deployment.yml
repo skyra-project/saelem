@@ -87,6 +87,30 @@ jobs:
       ||contains(needs.pre_ci.outputs.commit_message, '[skip publish]')
       ||github.event.inputs.skip-publish == true)
     needs: [pre_ci, Publish]
+    services:
+      saelem:
+        image: ghcr.io/skyra-project/saelem:latest
+        env:
+          SAELEM_REDIS_HOST: redis
+          SAELEM_REDIS_PORT: 6379
+          SAELEM_REDIS_PASSWORD: redis
+          SAELEM_REDIS_DATABASE: 0
+        options: >-
+          --health-cmd "nc -z localhost 8284"
+          --health-interval 10s
+          --health-timeout 10s
+          --health-retries 6
+          --health-start-period 20s
+        ports:
+          - 8284:8284
+      redis:
+        image: redis:alpine
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+          redis-server --requirepass redis
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
@@ -104,12 +128,7 @@ jobs:
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
         run: yarn --frozen-lockfile
       - name: Generate GraphQL Schema code
-        run: |
-          docker container run --name redis -d --expose 6379 -p 6379:6379 -it redis:alpine redis-server --requirepass redis \
-          && sleep 5 \
-          && docker container run --name saelem -d --expose 8080 -p 8284:8080 -e "SAELEM_REDIS_HOST=172.17.0.1" -e "SAELEM_REDIS_PORT=6379" -e "SAELEM_REDIS_PASSWORD=redis" -e "SAELEM_REDIS_DATABASE=0" -it skyrabot/saelem:latest \
-          && sleep 5 \
-          && yarn codegen
+        run: yarn codegen
       - name: Upload typescript bundle to artifacts
         uses: actions/upload-artifact@v2
         with:
