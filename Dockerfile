@@ -10,8 +10,6 @@ COPY --chown=node:node generated/api generated/api/
 
 RUN yarn install --frozen-lockfile --no-bin-links --link-duplicates --ignore-scripts
 
-ENV PORT 8080
-
 USER node
 
 CMD ["dumb-init", "yarn", "start"]
