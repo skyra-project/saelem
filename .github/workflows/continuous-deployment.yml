@@ -9,6 +9,11 @@ on:
       - '.github/workflows/continuous-deployment.yml'
       - 'README.md'
       - 'Dockerfile'
+  workflow_dispatch:
+    inputs:
+      skip-publish:
+        description: 'Whether to skip publishing typings to NPM'
+        required: false
 
 jobs:
   pre_ci:
@@ -44,11 +49,6 @@ jobs:
     steps:
       - name: Checkout Project
         uses: actions/checkout@v2
-      - name: Download build bundle artifact
-        uses: actions/download-artifact@v2
-        with:
-          name: api_bundle
-          path: generated/api/
       - name: Setup Docker Buildx
         uses: docker/setup-buildx-action@v1.3.0
       - name: Login to DockerHub
@@ -84,7 +84,8 @@ jobs:
     runs-on: ubuntu-latest
     if: >-
       !(contains(needs.pre_ci.outputs.commit_message, '[skip ci]')
-      ||contains(needs.pre_ci.outputs.commit_message, '[skip publish]'))
+      ||contains(needs.pre_ci.outputs.commit_message, '[skip publish]')
+      ||github.event.inputs.skip-publish == true)
     needs: [pre_ci, Publish]
     steps:
       - name: Checkout Project
@@ -192,6 +193,15 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: changelog_bundle
+      - name: Restore CI Cache
+        uses: actions/cache@v2.1.5
+        id: cache-restore
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies if Cache Miss
+        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        run: yarn --frozen-lockfile
       - name: Publish to NPM
         run: npm publish
         env:
@@ -226,6 +236,15 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: changelog_bundle
+      - name: Restore CI Cache
+        uses: actions/cache@v2.1.5
+        id: cache-restore
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
+      - name: Install Dependencies if Cache Miss
+        if: ${{ !steps.cache-restore.outputs.cache-hit }}
+        run: yarn --frozen-lockfile
       - name: Set correct author in package.json
         run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
       - name: Publish to Github
