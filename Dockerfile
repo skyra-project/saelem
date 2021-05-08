@@ -4,11 +4,14 @@ WORKDIR /usr/src/app
 
 RUN apk add --no-cache dumb-init
 
-COPY --chown=node:node package.json ./
-COPY --chown=node:node yarn.lock ./
-COPY --chown=node:node generated/api generated/api/
+COPY --chown=node:node package.json .
+COPY --chown=node:node yarn.lock .
+COPY --chown=node:node tsconfig.base.json tsconfig.base.json
+COPY --chown=node:node src/ src/
 
-RUN yarn install --frozen-lockfile --no-bin-links --link-duplicates --ignore-scripts
+RUN yarn install --production=false --frozen-lockfile --link-duplicates
+
+RUN yarn build
 
 USER node
 
