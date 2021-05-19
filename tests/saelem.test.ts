@@ -1,7 +1,7 @@
 import Days from '#utils/days';
 import Sunsigns from '#utils/sunsigns';
 import { Time } from '@sapphire/time-utilities';
-import { DataResponse, formatResponse, gCall, gql } from './testUtils';
+import { DataResponse, formatResponse, gCall, gql } from '#tests/testUtils';
 
 describe('getHoroscope', () => {
 	const getHoroscope = gql`

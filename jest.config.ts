@@ -2,6 +2,7 @@ import type { Config } from '@jest/types';
 
 // eslint-disable-next-line @typescript-eslint/require-await
 export default async (): Promise<Config.InitialOptions> => ({
+	coverageProvider: 'v8',
 	preset: 'ts-jest',
 	testEnvironment: 'node',
 	testRunner: 'jest-circus/runner',
@@ -11,7 +12,8 @@ export default async (): Promise<Config.InitialOptions> => ({
 		'^#utils/(.*)$': '<rootDir>/src/lib/utils/$1',
 		'^#redis/(.*)$': '<rootDir>/src/lib/redis/$1',
 		'^#lib/(.*)$': '<rootDir>/src/lib/$1',
-		'^#root/(.*)$': '<rootDir>/src/$1'
+		'^#root/(.*)$': '<rootDir>/src/$1',
+		'^#tests/(.*)$': '<rootDir>/tests/$1'
 	},
 	globals: {
 		'ts-jest': {

@@ -6,6 +6,11 @@
 	"license": "MIT",
 	"types": "generated/ts/saelem.d.ts",
 	"main": "generated/ts/saelem.d.ts",
+	"exports": {
+		"import": "./generated/ts/graphql-pokemon.d.ts",
+		"require": "./generated/ts/graphql-pokemon.d.ts"
+	},
+	"type": "module",
 	"imports": {
 		"#utils/*": "./generated/api/lib/utils/*.js",
 		"#redis/*": "./generated/api/lib/redis/*.js",
@@ -37,25 +42,26 @@
 		"graphql": "^15.5.0"
 	},
 	"devDependencies": {
-		"@commitlint/cli": "^12.1.1",
-		"@commitlint/config-conventional": "^12.1.1",
+		"@commitlint/cli": "^12.1.4",
+		"@commitlint/config-conventional": "^12.1.4",
 		"@graphql-codegen/cli": "^1.21.4",
 		"@graphql-codegen/schema-ast": "^1.18.2",
 		"@graphql-codegen/typescript": "^1.22.0",
 		"@graphql-codegen/typescript-resolvers": "^1.19.1",
 		"@sapphire/eslint-config": "3.1.2",
+		"@sapphire/fetch": "^1.0.1",
 		"@sapphire/prettier-config": "1.1.1",
 		"@sapphire/time-utilities": "^1.3.1",
 		"@sapphire/ts-config": "2.2.1",
 		"@sapphire/utilities": "^1.5.1",
 		"@types/cheerio": "^0.22.28",
-		"@types/ioredis": "^4.26.1",
+		"@types/ioredis": "^4.26.4",
 		"@types/jest": "^26.0.23",
 		"@types/koa": "^2.13.1",
-		"@types/node": "^15.3.0",
+		"@types/node": "^15.3.1",
 		"@types/node-fetch": "^2.5.10",
-		"apollo-server-koa": "^2.24.0",
-		"cheerio": "1.0.0-rc.6",
+		"apollo-server-koa": "^2.24.1",
+		"cheerio": "1.0.0-rc.9",
 		"class-validator": "^0.13.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"husky": "^6.0.0",
@@ -65,9 +71,8 @@
 		"jest-circus": "^26.6.3",
 		"koa": "^2.13.1",
 		"lint-staged": "^11.0.0",
-		"node-fetch": "^2.6.1",
 		"npm-run-all": "^4.1.5",
-		"prettier": "^2.2.1",
+		"prettier": "^2.3.0",
 		"pretty-quick": "^3.1.0",
 		"reflect-metadata": "^0.1.13",
 		"replace-in-file": "^6.2.0",
@@ -127,8 +132,7 @@
 		"jest-environment-jsdom": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
 		"jest-jasmine2": "https://registry.yarnpkg.com/@favware/skip-dependency/-/skip-dependency-1.1.1.tgz",
 		"lodash": "^4.17.21",
-		"dot-prop": "^6.0.1",
-		"node-fetch": "^2.6.1"
+		"dot-prop": "^6.0.1"
 	},
 	"prettier": "@sapphire/prettier-config"
 }

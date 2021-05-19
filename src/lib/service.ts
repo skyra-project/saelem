@@ -3,10 +3,11 @@ import { redisClient } from '#redis/client';
 import type { RedisStructure } from '#redis/RedisTypes';
 import type days from '#utils/days';
 import type sunsigns from '#utils/sunsigns';
+import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Time } from '@sapphire/time-utilities';
 import { toTitleCase } from '@sapphire/utilities';
 import { load as cheerio } from 'cheerio';
-import fetch, { RequestInit } from 'node-fetch';
+import type { RequestInit } from 'node-fetch';
 
 export default class HoroscopeService {
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
@@ -46,12 +47,8 @@ export default class HoroscopeService {
 		let horoscopeQueryable: ReturnType<typeof cheerio>;
 		try {
 			// Request the page for this horoscope
-			const horoscopeResp = await fetch(`https://astrology.tv/horoscope/signs/${sunsign}`, this.#fetchOptions);
+			const text = await fetch(`https://astrology.tv/horoscope/signs/${sunsign}`, this.#fetchOptions, FetchResultTypes.Text);
 
-			// If the request was not ok then throw to catch
-			if (!horoscopeResp.ok) throw new Error('🧨');
-
-			const text = await horoscopeResp.text();
 			// Parse the raw body with cheerio
 			horoscopeQueryable = cheerio(text);
 		} catch {

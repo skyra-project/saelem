@@ -1,5 +1,5 @@
 import 'reflect-metadata';
-import gqlServer from './server';
+import gqlServer from '#root/server';
 
 const port = process.env.PORT || 8284;
 const server = gqlServer();

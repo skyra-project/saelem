@@ -7,7 +7,8 @@
 			"#utils/*": ["../src/lib/utils/*"],
 			"#redis/*": ["../src/lib/redis/*"],
 			"#lib/*": ["../src/lib/*"],
-			"#root/*": ["../src/*"]
+			"#root/*": ["../src/*"],
+			"#tests/*": ["./*"]
 		}
 	},
 	"include": [".", "../src"],
