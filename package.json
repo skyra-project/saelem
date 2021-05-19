@@ -6,17 +6,18 @@
 	"license": "MIT",
 	"types": "generated/ts/saelem.d.ts",
 	"main": "generated/ts/saelem.d.ts",
+	"type": "module",
 	"exports": {
 		"import": "./generated/ts/graphql-pokemon.d.ts",
 		"require": "./generated/ts/graphql-pokemon.d.ts"
 	},
-	"type": "module",
 	"imports": {
 		"#utils/*": "./generated/api/lib/utils/*.js",
 		"#redis/*": "./generated/api/lib/redis/*.js",
 		"#lib/*": "./generated/api/lib/*.js",
 		"#root/*": "./generated/api/*.js"
 	},
+	"sideEffects": false,
 	"homepage": "https://www.github.com/skyra-project/saelem",
 	"scripts": {
 		"lint": "eslint src tests --ext ts --fix",
