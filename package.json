@@ -66,7 +66,7 @@
 		"class-validator": "^0.13.1",
 		"cz-conventional-changelog": "^3.3.0",
 		"husky": "^6.0.0",
-		"ioredis": "^4.27.5",
+		"ioredis": "^4.27.6",
 		"ioredis-mock": "^5.6.0",
 		"jest": "^27.0.4",
 		"jest-circus": "^27.0.4",
