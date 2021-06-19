@@ -4,12 +4,13 @@
 	"description": "GraphQL Horoscope API for Skyra",
 	"author": "@skyra",
 	"license": "MIT",
-	"types": "generated/ts/saelem.d.ts",
-	"main": "generated/ts/saelem.d.ts",
 	"type": "module",
+	"main": "generated/ts/saelem.cjs",
+	"module": "generated/ts/saelem.mjs",
+	"types": "generated/ts/saelem.d.ts",
 	"exports": {
-		"import": "./generated/ts/saelem.d.ts",
-		"require": "./generated/ts/saelem.d.ts"
+		"import": "./generated/ts/saelem.cjs",
+		"require": "./generated/ts/saelem.mjs"
 	},
 	"imports": {
 		"#utils/*": "./generated/api/lib/utils/*.js",
@@ -32,10 +33,13 @@
 		"cz": "git-cz",
 		"update": "yarn upgrade-interactive --latest",
 		"sversion": "standard-version",
+		"precodegen": "node scripts/clean-generated.mjs",
 		"codegen": "graphql-codegen",
-		"postcodegen": "run-s typescript:** graphql:**",
-		"typescript:replace-invalid-code": "replace-in-file /}\\;/g } generated/ts/saelem.d.ts --isRegex",
-		"graphql:replace-query": "replace-in-file \"type Query \" \"type SaelemQuery \" generated/ts/saelem.graphql",
+		"postcodegen": "run-s typescript:*",
+		"typescript:replace-invalid-code": "replace-in-file /}\\;/g } generated/ts/saelem.ts --isRegex",
+		"typescript:use-type-import": "replace-in-file /import/g \"import type\" generated/ts/saelem.ts --isRegex",
+		"typescript:compile": "rollup -c scripts/rollup.config.mjs",
+		"typescript:cleanup": "node scripts/postcodegen.mjs",
 		"prepublishOnly": "yarn build",
 		"prepare": "husky install .github/husky"
 	},
@@ -77,6 +81,8 @@
 		"pretty-quick": "^3.1.1",
 		"reflect-metadata": "^0.1.13",
 		"replace-in-file": "^6.2.0",
+		"rollup": "^2.52.1",
+		"rollup-plugin-typescript2": "^0.30.0",
 		"standard-version": "^9.3.0",
 		"streamsearch": "^0.1.2",
 		"ts-jest": "^27.0.3",
@@ -86,8 +92,7 @@
 		"utility-types": "^3.10.0"
 	},
 	"files": [
-		"generated/ts/saelem.d.ts",
-		"generated/ts/saelem.graphql"
+		"generated/ts"
 	],
 	"engines": {
 		"node": ">=14",
