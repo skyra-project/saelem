@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.8](https://github.com/skyra-project/saelem/compare/v3.0.7...v3.0.8) (2021-06-19)
+
+
+### Bug Fixes
+
+* bundle with rollup to output proper JS files ([f864c32](https://github.com/skyra-project/saelem/commit/f864c32ca3be6daca915ba81463f42c58aef6148))
+
 ### [3.0.7](https://github.com/skyra-project/saelem/compare/v3.0.6...v3.0.7) (2021-06-19)
 
 
