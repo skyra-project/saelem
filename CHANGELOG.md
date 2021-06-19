@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.7](https://github.com/skyra-project/saelem/compare/v3.0.6...v3.0.7) (2021-06-19)
+
+
+### Bug Fixes
+
+* fixed exports not  targeting correct files ([86b50b3](https://github.com/skyra-project/saelem/commit/86b50b332ca180edd7a75da7e715757f706dcb0c))
+
 ### [3.0.6](https://github.com/skyra-project/saelem/compare/v3.0.5...v3.0.6) (2021-06-12)
 
 ### [3.0.5](https://github.com/skyra-project/saelem/compare/v3.0.4...v3.0.5) (2021-05-19)
