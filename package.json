@@ -8,8 +8,8 @@
 	"main": "generated/ts/saelem.d.ts",
 	"type": "module",
 	"exports": {
-		"import": "./generated/ts/graphql-pokemon.d.ts",
-		"require": "./generated/ts/graphql-pokemon.d.ts"
+		"import": "./generated/ts/saelem.d.ts",
+		"require": "./generated/ts/saelem.d.ts"
 	},
 	"imports": {
 		"#utils/*": "./generated/api/lib/utils/*.js",
