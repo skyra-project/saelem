@@ -9,8 +9,8 @@
 	"module": "generated/ts/saelem.mjs",
 	"types": "generated/ts/saelem.d.ts",
 	"exports": {
-		"import": "./generated/ts/saelem.cjs",
-		"require": "./generated/ts/saelem.mjs"
+		"import": "./generated/ts/saelem.mjs",
+		"require": "./generated/ts/saelem.cjs"
 	},
 	"imports": {
 		"#utils/*": "./generated/api/lib/utils/*.js",
