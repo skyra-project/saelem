@@ -16,5 +16,5 @@ in your text editor or IDE of your choice to ensure builds from GitHub Actions d
 <!-- Link Dump -->
 
 [discord server]: https://join.skyra.pw
-[here]: https://github.com/skyra-project/skyra/pulls
+[here]: https://github.com/skyra-project/saelem/pulls
 [eslint]: https://eslint.org/
