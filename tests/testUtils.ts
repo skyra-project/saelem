@@ -10,7 +10,7 @@ import { graphql, GraphQLSchema } from 'graphql';
 let schema: GraphQLSchema;
 
 export const gCall = async <V = QueryGetHoroscopeArgs>({ source, variableValues }: GCallOptions<V>) => {
-	if (!schema) schema = buildGqlSchema();
+	if (!schema) schema = await buildGqlSchema();
 
 	return graphql({
 		schema,
