@@ -2,24 +2,44 @@
 // Source: https://github.com/favware/graphql-pokemon
 
 import { buildGqlSchema } from '#root/server';
-import type Days from '#utils/days';
-import type Sunsigns from '#utils/sunsigns';
-import { graphql, GraphQLSchema } from 'graphql';
+import type { Query } from '#tests/types';
+import { graphql, GraphQLError, GraphQLSchema } from 'graphql';
+import type { Maybe } from 'type-graphql';
 
-// eslint-disable-next-line @typescript-eslint/init-declarations
-let schema: GraphQLSchema;
+interface DataResponse<K extends keyof Omit<Query, '__typename'>> {
+	data: Record<K, Omit<Query[K], '__typename'>>;
+}
 
-export const gCall = async <V = QueryGetHoroscopeArgs>({ source, variableValues }: GCallOptions<V>) => {
-	if (!schema) schema = await buildGqlSchema();
+interface GCallOptions {
+	source: string;
+	variableValues?: Maybe<Record<string, unknown>>;
+}
 
-	return graphql({
+/**
+ * Cached GraphQL schema so it only has to be build once
+ */
+let schema: GraphQLSchema | null = null;
+
+/**
+ * Formats the response data so it can be parsed by Jest
+ * @param data The data to format
+ * @returns Formatted data
+ */
+const formatResponse = (data: unknown) => JSON.parse(JSON.stringify(data));
+
+export const gCall = async <K extends keyof Omit<Query, '__typename'> | unknown>({ source, variableValues }: GCallOptions) => {
+	if (schema === null) {
+		schema = await buildGqlSchema();
+	}
+
+	const response = await graphql({
 		schema,
 		source,
 		variableValues
 	});
-};
 
-export const formatResponse = (data: unknown) => JSON.parse(JSON.stringify(data));
+	return formatResponse(response) as K extends keyof Omit<Query, '__typename'> ? DataResponse<K> : Record<'errors', ReadonlyArray<GraphQLError>>;
+};
 
 /**
  * Fake GraphQL tag that just returns everything passed in as a single combined string
@@ -33,39 +53,4 @@ export function gql(...args: any[]): string {
 		if (Reflect.has(args, idx + 1)) acc += args[idx + 1];
 		return acc;
 	}, '');
-}
-
-interface QueryGetHoroscopeArgs {
-	sunsign: typeof Sunsigns;
-	day?: typeof Days | null;
-}
-
-interface GCallOptions<V> {
-	source: string;
-	variableValues?: V | null;
-}
-
-export interface Query {
-	/** Gets the horoscope for a given sunsign. Optionally you can pass one of "yesterday", "today" or "tomorrow" to get the horoscope for that relative day. Day defaults to "today" */
-	readonly getHoroscope: HoroscopeEntry;
-}
-
-/** The horoscope data on a specific star sign */
-export interface HoroscopeEntry {
-	/** The date for the prediction in milliseconds since UNIX epoch */
-	readonly date: unknown;
-	/** The horoscope prediction */
-	readonly prediction: string;
-	/** The intensity of the prediction */
-	readonly intensity: string;
-	/** The mood for the prediction */
-	readonly mood: string;
-	/** Keywords for this prediction */
-	readonly keywords: readonly string[];
-	/** The rating for the prediction, this is a number between 0 and 5 inclusive */
-	readonly rating: number;
-}
-
-export interface DataResponse<K extends keyof Query> {
-	data: Record<K, Query[K]>;
 }

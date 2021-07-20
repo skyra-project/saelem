@@ -1,10 +1,10 @@
-import { DataResponse, formatResponse, gCall, gql } from '#tests/testUtils';
+import { gCall, gql } from '#tests/testUtils';
 import Days from '#utils/days';
 import Sunsigns from '#utils/sunsigns';
 
 describe('getHoroscope', () => {
 	beforeAll(() => {
-		jest.useFakeTimers();
+		jest.useFakeTimers('modern');
 		jest.setSystemTime(new Date('2020-01-01T12:00:00.000+00:00'));
 	});
 
@@ -26,10 +26,10 @@ describe('getHoroscope', () => {
 	`;
 
 	test('GIVEN no day THEN defaults to today', async () => {
-		const { data } = (await gCall({
+		const { data } = await gCall<'getHoroscope'>({
 			source: getHoroscope,
 			variableValues: { horoscope: Sunsigns.pisces }
-		}).then(formatResponse)) as DataResponse<'getHoroscope'>;
+		});
 
 		expect(data.getHoroscope.date).toBeBefore(new Date());
 		expect(data.getHoroscope.date).toBeDefined();
@@ -41,20 +41,20 @@ describe('getHoroscope', () => {
 	});
 
 	test('GIVEN yesterday date THEN defaults to today', async () => {
-		const { data } = (await gCall({
+		const { data } = await gCall<'getHoroscope'>({
 			source: getHoroscope,
 			variableValues: { horoscope: Sunsigns.aries, day: Days.yesterday }
-		}).then(formatResponse)) as DataResponse<'getHoroscope'>;
+		});
 
 		expect(data.getHoroscope.date).toBeBefore(new Date());
 		expect(data.getHoroscope.prediction).toBeDefined();
 	});
 
 	test('GIVEN tomorrow date THEN defaults to today', async () => {
-		const { data } = (await gCall({
+		const { data } = await gCall<'getHoroscope'>({
 			source: getHoroscope,
 			variableValues: { horoscope: Sunsigns.gemini, day: Days.tomorrow }
-		}).then(formatResponse)) as DataResponse<'getHoroscope'>;
+		});
 
 		expect(data.getHoroscope.date).toBeAfter(new Date());
 		expect(data.getHoroscope.prediction).toBeDefined();
