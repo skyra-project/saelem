@@ -63,7 +63,7 @@
 		"@types/ioredis": "^4.26.6",
 		"@types/jest": "^26.0.24",
 		"@types/koa": "^2.13.4",
-		"@types/node": "^16.4.10",
+		"@types/node": "^16.4.13",
 		"@types/node-fetch": "^2.5.12",
 		"apollo-server-koa": "^3.0.2",
 		"cheerio": "1.0.0-rc.10",
