@@ -61,7 +61,7 @@
 		"@sapphire/utilities": "^2.0.1",
 		"@types/cheerio": "^0.22.30",
 		"@types/ioredis": "^4.26.7",
-		"@types/jest": "^26.0.24",
+		"@types/jest": "^27.0.1",
 		"@types/koa": "^2.13.4",
 		"@types/node": "^16.6.1",
 		"@types/node-fetch": "^2.5.12",
