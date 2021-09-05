@@ -80,7 +80,7 @@ export default class HoroscopeService {
 
 			return horoscopeEntry;
 		} catch (error) {
-			throw new Error(error);
+			throw new Error(error as any);
 		}
 	}
 
