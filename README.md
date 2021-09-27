@@ -8,7 +8,6 @@
 
 [![GitHub](https://img.shields.io/github/license/skyra-project/saelem)](https://github.com/skyra-project/saelem/blob/main/LICENSE.md)
 [![npm](https://img.shields.io/npm/v/@skyra/saelem?color=crimson&label=TypeScript%20version&logo=npm&style=flat-square)](https://www.npmjs.com/package/@skyra/saelem)
-[![Depfu](https://badges.depfu.com/badges/785b29d93aecce969a40182f63514e66/count.svg)](https://depfu.com/github/skyra-project/saelem?project_id=13933)
 
 [![Support Server](https://discord.com/api/guilds/254360814063058944/embed.png?style=banner2)](https://join.skyra.pw/sapphire)
 
