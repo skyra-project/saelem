@@ -96,7 +96,7 @@
 		"generated/ts"
 	],
 	"engines": {
-		"node": ">=v14.17.6",
+		"node": ">=v14.18.0",
 		"npm": ">=6"
 	},
 	"repository": {
