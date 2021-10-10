@@ -7,7 +7,6 @@ import { fetch, FetchResultTypes } from '@sapphire/fetch';
 import { Time } from '@sapphire/time-utilities';
 import { toTitleCase } from '@sapphire/utilities';
 import { load as cheerio } from 'cheerio';
-import type { RequestInit } from 'node-fetch';
 
 export default class HoroscopeService {
 	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
