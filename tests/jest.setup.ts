@@ -1,6 +1,6 @@
 import type { RedisOptions } from 'ioredis';
 import 'reflect-metadata';
-import 'jest-extended';
+import 'jest-extended/all';
 
 jest.mock('ioredis', () => {
 	// eslint-disable-next-line @typescript-eslint/no-var-requires
