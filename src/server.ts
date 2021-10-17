@@ -43,6 +43,7 @@ const gqlServer = async (): Promise<Koa<Koa.DefaultState, Koa.DefaultContext>> =
 		]
 	});
 
+	await apolloServer.start();
 	apolloServer.applyMiddleware({ app, path: '/', cors: true });
 
 	return app;
