@@ -100,7 +100,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Generate GraphQL Schema code
         run: yarn codegen
       - name: Upload typescript bundle to artifacts
@@ -133,7 +133,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Configure Git
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -192,7 +192,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Publish to NPM
         run: npm publish
         env:
@@ -234,7 +234,7 @@ jobs:
           key: ${{ runner.os }}-16-${{ hashFiles('**/yarn.lock') }}
       - name: Install Dependencies if Cache Miss
         if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --frozen-lockfile
+        run: yarn --immutable
       - name: Set correct author in package.json
         run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
       - name: Publish to Github
