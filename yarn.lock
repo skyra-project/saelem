@@ -2012,7 +2012,7 @@ __metadata:
     "@sapphire/ts-config": 3.1.1
     "@sapphire/utilities": ^3.0.3
     "@types/cheerio": ^0.22.30
-    "@types/ioredis": ^4.27.7
+    "@types/ioredis": ^4.27.8
     "@types/jest": ^27.0.2
     "@types/koa": ^2.13.4
     "@types/node": ^16.10.3
@@ -2020,27 +2020,27 @@ __metadata:
     cheerio: 1.0.0-rc.10
     class-validator: ^0.13.1
     cz-conventional-changelog: ^3.3.0
-    eslint: ^8.0.1
+    eslint: ^8.1.0
     graphql: ^15.6.1
-    husky: ^7.0.2
+    husky: ^7.0.4
     ioredis: ^4.28.0
     ioredis-mock: ^5.6.0
-    jest: ^27.2.5
-    jest-circus: ^27.2.5
-    jest-extended: ^1.0.0
-    koa: ^2.13.3
-    lint-staged: ^11.2.3
+    jest: ^27.3.1
+    jest-circus: ^27.3.1
+    jest-extended: ^1.1.0
+    koa: ^2.13.4
+    lint-staged: ^11.2.4
     npm-run-all: ^4.1.5
     prettier: ^2.4.1
     pretty-quick: ^3.1.1
     reflect-metadata: ^0.1.13
-    replace-in-file: ^6.3.1
+    replace-in-file: ^6.3.2
     rollup: ^2.58.0
     rollup-plugin-typescript2: ^0.30.0
-    standard-version: ^9.3.1
+    standard-version: ^9.3.2
     streamsearch: ^0.1.2
     ts-jest: ^27.0.7
-    ts-node: ^10.3.0
+    ts-node: ^10.4.0
     type-graphql: ^1.1.1
     typescript: ^4.4.4
     utility-types: ^3.10.0
@@ -2244,7 +2244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/ioredis@npm:^4.27.7":
+"@types/ioredis@npm:^4.27.8":
   version: 4.27.8
   resolution: "@types/ioredis@npm:4.27.8"
   dependencies:
@@ -4242,7 +4242,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cosmiconfig@npm:7.0.1, cosmiconfig@npm:^7.0.0, cosmiconfig@npm:^7.0.1":
+"cosmiconfig@npm:7.0.1, cosmiconfig@npm:^7.0.0":
   version: 7.0.1
   resolution: "cosmiconfig@npm:7.0.1"
   dependencies:
@@ -5008,7 +5008,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:8.1.0, eslint@npm:^8.0.0, eslint@npm:^8.0.1":
+"eslint@npm:8.1.0, eslint@npm:^8.0.0, eslint@npm:^8.1.0":
   version: 8.1.0
   resolution: "eslint@npm:8.1.0"
   dependencies:
@@ -6204,7 +6204,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"husky@npm:^7.0.2":
+"husky@npm:^7.0.4":
   version: 7.0.4
   resolution: "husky@npm:7.0.4"
   bin:
@@ -6909,7 +6909,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-circus@npm:^27.2.5, jest-circus@npm:^27.3.1":
+"jest-circus@npm:^27.3.1":
   version: 27.3.1
   resolution: "jest-circus@npm:27.3.1"
   dependencies:
@@ -7072,7 +7072,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest-extended@npm:^1.0.0":
+"jest-extended@npm:^1.1.0":
   version: 1.1.0
   resolution: "jest-extended@npm:1.1.0"
   dependencies:
@@ -7441,7 +7441,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jest@npm:^27.2.5":
+"jest@npm:^27.3.1":
   version: 27.3.1
   resolution: "jest@npm:27.3.1"
   dependencies:
@@ -7747,7 +7747,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"koa@npm:^2.13.3":
+"koa@npm:^2.13.4":
   version: 2.13.4
   resolution: "koa@npm:2.13.4"
   dependencies:
@@ -7821,6 +7821,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lilconfig@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "lilconfig@npm:2.0.3"
+  checksum: 39fcd06c9f94bec0f7be969f89abcead96cf9334682007df63e6fbe9bdb0566cf8e1ca53a8f56d2acca802f28e8acbabe8ed4e6265ed5e419b6a1397db003741
+  languageName: node
+  linkType: hard
+
 "lines-and-columns@npm:^1.1.6":
   version: 1.1.6
   resolution: "lines-and-columns@npm:1.1.6"
@@ -7828,17 +7835,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lint-staged@npm:^11.2.3":
-  version: 11.2.3
-  resolution: "lint-staged@npm:11.2.3"
+"lint-staged@npm:^11.2.4":
+  version: 11.2.4
+  resolution: "lint-staged@npm:11.2.4"
   dependencies:
     cli-truncate: 2.1.0
     colorette: ^1.4.0
     commander: ^8.2.0
-    cosmiconfig: ^7.0.1
     debug: ^4.3.2
     enquirer: ^2.3.6
     execa: ^5.1.1
+    js-yaml: ^4.1.0
+    lilconfig: ^2.0.3
     listr2: ^3.12.2
     micromatch: ^4.0.4
     normalize-path: ^3.0.0
@@ -7848,7 +7856,7 @@ __metadata:
     supports-color: 8.1.1
   bin:
     lint-staged: bin/lint-staged.js
-  checksum: cf3a1612a8cb3790030fb1eaf98071b97be0c71e9ee87f2f65741321974178e9b15b480dac695bb126d2cd8751dd7d72071b13d7ea0e1a97a735d88bd3cc8bb7
+  checksum: 9c1478d1903029a1db15b81c3f4d56a99b28774871961d18ea38dff1d7648bbca2eaa55c53c5c71732add89994bb07d3b91ce127495a7e586f519dfdb8a45938
   languageName: node
   linkType: hard
 
@@ -9690,7 +9698,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"replace-in-file@npm:^6.3.1":
+"replace-in-file@npm:^6.3.2":
   version: 6.3.2
   resolution: "replace-in-file@npm:6.3.2"
   dependencies:
@@ -10309,7 +10317,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"standard-version@npm:^9.3.1":
+"standard-version@npm:^9.3.2":
   version: 9.3.2
   resolution: "standard-version@npm:9.3.2"
   dependencies:
@@ -10859,7 +10867,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ts-node@npm:^10.3.0":
+"ts-node@npm:^10.4.0":
   version: 10.4.0
   resolution: "ts-node@npm:10.4.0"
   dependencies:
