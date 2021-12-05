@@ -56,7 +56,7 @@
 		"@sapphire/eslint-config": "^4.0.7",
 		"@sapphire/fetch": "^2.0.3",
 		"@sapphire/prettier-config": "^1.2.6",
-		"@sapphire/time-utilities": "^1.4.9",
+		"@sapphire/time-utilities": "^1.5.0",
 		"@sapphire/ts-config": "^3.1.6",
 		"@sapphire/utilities": "^3.1.0",
 		"@types/cheerio": "^0.22.30",
