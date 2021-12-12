@@ -2029,7 +2029,7 @@ __metadata:
     rollup: ^2.60.2
     rollup-plugin-typescript2: ^0.31.1
     standard-version: ^9.3.2
-    streamsearch: ^0.1.2
+    streamsearch: ^1.0.0
     ts-jest: ^27.1.0
     ts-node: ^10.4.0
     type-graphql: ^1.1.1
@@ -10634,10 +10634,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"streamsearch@npm:^0.1.2":
-  version: 0.1.2
-  resolution: "streamsearch@npm:0.1.2"
-  checksum: d2db57cbfbf7947ab9c75a7b4c80a8ef8d24850cf0a1a24258bb6956c97317ce1eab7dbcbf9c5aba3e6198611af1053b02411057bbedb99bf9c64b8275248997
+"streamsearch@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "streamsearch@npm:1.0.0"
+  checksum: 4d3c486366a5618538f432209c065516fdd278ea2bb0114d7a2ac09793423492172e885a9301c304bc3118349446924bfe8d46047997165d4c09890ea12e7cef
   languageName: node
   linkType: hard
 
