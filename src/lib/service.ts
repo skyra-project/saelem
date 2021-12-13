@@ -9,9 +9,7 @@ import { toTitleCase } from '@sapphire/utilities';
 import { load as cheerio } from 'cheerio';
 
 export default class HoroscopeService {
-	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#baseSeletor = '.sign-hero__horoscope-wrapper > div > .day-tabs-content--sign-page';
-	// eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
 	#fetchOptions: RequestInit = {
 		headers: {
 			accept: '*/*',
