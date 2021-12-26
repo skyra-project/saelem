@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.10](https://github.com/skyra-project/saelem/compare/v3.0.9...v3.0.10) (2021-12-26)
+
+
+### Bug Fixes
+
+* **deps:** update dependency graphql to ^15.6.0 ([7f46ebb](https://github.com/skyra-project/saelem/commit/7f46ebb233b1a51865fa2ec82593eaaddc464005))
+* fixed server init [skip publish] ([f194035](https://github.com/skyra-project/saelem/commit/f194035e21d0018a9ab2cf239317425224d96464))
+
 ### [3.0.9](https://github.com/skyra-project/saelem/compare/v3.0.8...v3.0.9) (2021-06-19)
 
 
