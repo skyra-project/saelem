@@ -76,7 +76,7 @@
 		"eslint-plugin-prettier": "^4.0.0",
 		"husky": "^7.0.4",
 		"ioredis": "^4.28.3",
-		"ioredis-mock": "^5.9.0",
+		"ioredis-mock": "^6.3.0",
 		"jest": "^27.4.7",
 		"jest-circus": "^27.4.6",
 		"jest-extended": "^1.2.1",
