@@ -65,7 +65,7 @@ export default class HoroscopeService {
 						.slice(1)
 						.join('')
 						.split(', ')
-						.map(toTitleCase)
+						.map((value) => toTitleCase(value))
 				)
 				.setRating(horoscopeQueryable(`${daySelector} > .daily-tabs-content__rating #FontAwesomeicon-star`).length);
 
