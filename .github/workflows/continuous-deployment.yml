@@ -209,11 +209,10 @@ jobs:
         uses: actions/download-artifact@fb598a63ae348fa914e94cd0ff38f362e927b741 # tag=v3
         with:
           name: changelog_bundle
-      - name: Install Dependencies
-        if: ${{ !steps.cache-restore.outputs.cache-hit }}
-        run: yarn --immutable
       - name: Set correct author in package.json
         run: npx replace-in-file /@skyra/g "@skyra-project" package.json --isRegex
+      - name: Install Dependencies
+        run: yarn
       - name: Publish to Github
         run: npm publish
         env:
