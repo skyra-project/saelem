@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.25](https://github.com/skyra-project/saelem/compare/v3.0.24...v3.0.25) (2022-03-27)
+
+
+### Bug Fixes
+
+* fixed codegen for yarn v3 ([7d3d0d2](https://github.com/skyra-project/saelem/commit/7d3d0d254acd5531aac02426acce94f91f52d21a))
+
 ### [3.0.24](https://github.com/skyra-project/saelem/compare/v3.0.23...v3.0.24) (2022-03-27)
 
 ### [3.0.23](https://github.com/skyra-project/saelem/compare/v3.0.22...v3.0.23) (2022-03-27)
