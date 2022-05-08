@@ -1570,6 +1570,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@ioredis/as-callback@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "@ioredis/as-callback@npm:3.0.0"
+  checksum: 2835e39631497fe4f8b07d95576abea165c9f7efef81e9e55c733588051ff4edcb31eeb59f36127923dae0cb1a8e21b4e27ee3ab79a065a0baeecf861c3bc0b1
+  languageName: node
+  linkType: hard
+
+"@ioredis/commands@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "@ioredis/commands@npm:1.1.1"
+  checksum: 66a9dc315dc077826fef4057c027c77c5af3fba247e6a5156c6847700fec8968a1b180bca344120ad561f5654cda54ed63119f790a041b0a010cacf02421ecff
+  languageName: node
+  linkType: hard
+
 "@istanbuljs/load-nyc-config@npm:^1.0.0":
   version: 1.1.0
   resolution: "@istanbuljs/load-nyc-config@npm:1.1.0"
@@ -2102,7 +2116,7 @@ __metadata:
     graphql: ^15.8.0
     husky: ^7.0.4
     ioredis: ^4.28.5
-    ioredis-mock: ^7.4.0
+    ioredis-mock: ^8.2.0
     jest: ^27.5.1
     jest-circus: ^27.5.1
     jest-extended: ^2.0.0
@@ -6602,17 +6616,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ioredis-mock@npm:^7.4.0":
-  version: 7.4.0
-  resolution: "ioredis-mock@npm:7.4.0"
+"ioredis-mock@npm:^8.2.0":
+  version: 8.2.0
+  resolution: "ioredis-mock@npm:8.2.0"
   dependencies:
+    "@ioredis/as-callback": ^3.0.0
+    "@ioredis/commands": ^1.1.1
     fengari: ^0.1.4
     fengari-interop: ^0.1.3
-    redis-commands: ^1.7.0
-    standard-as-callback: ^2.1.0
   peerDependencies:
-    ioredis: 4.x || 5.x
-  checksum: a3e1b294bb09dc8839e40a299ae448a780e2be848f04e0224bf14f2f4982cac7c029c62ddb6a3405aed070a6d3c53fd49ed87a91679ce0f3c2b1652801940ae6
+    ioredis: 5.x
+  checksum: 26c2708b5dc189352d4ff4b6d7feecadef62c9017021ac2058e9198e6f988bf6af4dac652a23c6afd8b3f4fc97977003b7b618bd295c1b64bafaafb3ce9937a2
   languageName: node
   linkType: hard
 
@@ -9609,7 +9623,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"redis-commands@npm:1.7.0, redis-commands@npm:^1.7.0":
+"redis-commands@npm:1.7.0":
   version: 1.7.0
   resolution: "redis-commands@npm:1.7.0"
   checksum: d1ff7fbcb5e54768c77f731f1d49679d2a62c3899522c28addb4e2e5813aea8bcac3f22519d71d330224c3f2937f935dfc3d8dc65e90db0f5fe22dc2c1515aa7
