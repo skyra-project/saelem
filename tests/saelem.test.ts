@@ -4,7 +4,7 @@ import Sunsigns from '#utils/sunsigns';
 
 describe('getHoroscope', () => {
 	beforeAll(() => {
-		jest.useFakeTimers('modern');
+		jest.useFakeTimers();
 		jest.setSystemTime(new Date('2020-01-01T12:00:00.000+00:00'));
 	});
 
