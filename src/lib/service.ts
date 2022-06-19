@@ -3,14 +3,14 @@ import { redisClient } from '#redis/client';
 import type { RedisStructure } from '#redis/RedisTypes';
 import type days from '#utils/days';
 import type sunsigns from '#utils/sunsigns';
-import { fetch, FetchResultTypes } from '@sapphire/fetch';
+import { fetch, FetchResultTypes, type RequestOptions } from '@sapphire/fetch';
 import { Time } from '@sapphire/time-utilities';
 import { toTitleCase } from '@sapphire/utilities';
 import { load as cheerio } from 'cheerio';
 
 export default class HoroscopeService {
 	#baseSeletor = '.sign-hero__horoscope-wrapper > div > .day-tabs-content--sign-page';
-	#fetchOptions: RequestInit = {
+	#fetchOptions: RequestOptions = {
 		headers: {
 			accept: '*/*',
 			'accept-encoding': 'gzip, deflate, br',
