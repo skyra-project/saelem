@@ -56,7 +56,7 @@
 		"@sapphire/prettier-config": "^1.4.4",
 		"@sapphire/time-utilities": "^1.7.6",
 		"@sapphire/ts-config": "^3.3.4",
-		"@sapphire/utilities": "^3.9.2",
+		"@sapphire/utilities": "^3.9.3",
 		"@types/cheerio": "^0.22.31",
 		"@types/ioredis": "^4.28.10",
 		"@types/jest": "^29.0.0",
